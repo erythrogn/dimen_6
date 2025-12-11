@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIMEN6 - Dimensões de uma Imaginação em Realidade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <img src="logo.svg" alt="DIMEN6" class="logo-svg" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <span style="display:none; font-family:'Orbitron'; font-size:1.5rem; color:white;">DIMEN6</span>
+            </a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content scroll-reveal">
+            <div class="hero-logo">
+                <img src="logo.svg" alt="DIMEN6 Logo" class="hero-logo-svg">
+            </div>
+            <h1>Dimensões de uma <span class="highlight-text">Imaginação</span> em Realidade</h1>
+            <p>Na DIMEN6, damos vida a ideias através da modelagem 3D, VFX e CGI. Criando experiências imersivas para games, animações e publicidade.</p>
+            <a href="#about" class="cta-button">EXPLORAR O UNIVERSO</a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Sobre a <span>DIMEN6</span></h2>
+            <div class="about-content">
+                <div class="about-text scroll-reveal">
+                    <p>Somos um estúdio focado em <span class="highlight">transcender o comum</span>. Utilizando as mais recentes tecnologias de renderização e modelagem, transformamos conceitos abstratos em visuais de tirar o fôlego.</p>
+                    <p>Seja para um comercial de alto impacto ou para a criação de assets para jogos AAA, nossa missão é conectar a imaginação humana à realidade digital.</p>
+                    <ul class="tech-list">
+                        <li><i class="fas fa-cube"></i> Blender & Maya</li>
+                        <li><i class="fas fa-magic"></i> Unreal Engine 5</li>
+                        <li><i class="fas fa-film"></i> After Effects</li>
+                    </ul>
+                </div>
+                <div class="about-image scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Ambiente 3D Futurista">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Nossos <span>Serviços</span></h2>
+            <div class="services-grid">
+                <div class="service-card scroll-reveal">
+                    <i class="fas fa-cube service-icon"></i>
+                    <h3>Modelagem 3D</h3>
+                    <p>Criação de assets, personagens e ambientes detalhados com topologia otimizada para render ou real-time.</p>
+                </div>
+                <div class="service-card scroll-reveal">
+                    <i class="fas fa-dragon service-icon"></i>
+                    <h3>VFX & CGI</h3>
+                    <p>Efeitos visuais cinematográficos, simulações de partículas, fluidos e integração live-action.</p>
+                </div>
+                <div class="service-card scroll-reveal">
+                    <i class="fas fa-gamepad service-icon"></i>
+                    <h3>Game Assets</h3>
+                    <p>Desenvolvimento de props e cenários prontos para engines como Unity e Unreal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Inicie o <span>Projeto</span></h2>
+            <div class="contact-wrapper scroll-reveal">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Seu Nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Seu Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Descreva sua ideia..." required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">ENVIAR MENSAGEM</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="logo.svg" alt="DIMEN6" class="footer-logo-svg" onerror="this.style.display='none'">
+            </div>
+            <p class="footer-text">Transformando imaginação em realidade através da modelagem 3D, VFX e CGI.</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-artstation"></i></a> <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 DIMEN6. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
