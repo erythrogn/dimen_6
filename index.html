@@ -3,353 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIMEN6 - Estúdio de Modelagem 3D, VFX & CGI</title>
+    <title>DIMEN6 - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo-dimen6.svg">
 </head>
-<body class="dimen6-theme">
-    <!-- Cabeçalho -->
-    <header class="dimen6-header">
-        <div class="header-container">
-            <div class="logo-container">
-                <div class="logo-d6">D6</div>
-                <div class="logo-text">
-                    <span class="logo-dim">DIMEN</span>
-                    <span class="logo-six">6</span>
-                </div>
-            </div>
-            
-            <nav class="dimen6-nav">
-                <a href="index.html" class="nav-link active">INÍCIO</a>
-                <a href="services.html" class="nav-link">SERVIÇOS</a>
-                <a href="portfolio.html" class="nav-link">PORTFÓLIO</a>
-                <a href="contact.html" class="nav-link">CONTATO</a>
-                <a href="#quote" class="nav-button">ORÇAMENTO</a>
+<body>
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><span style="color:white; font-size:1.5rem;">DIMEN6</span></a>
+            <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="universo.html">Universo</a></li>
+                </ul>
             </nav>
-            
-            <button class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="dimen6-hero">
-        <div class="hero-background">
-            <canvas id="threejs-canvas"></canvas>
-            <div class="hero-overlay"></div>
-        </div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="title-line">DIMEN6</span>
-                <span class="title-sub">DIMENSÕES DE UMA IMAGINAÇÃO EM REALIDADE</span>
-            </h1>
-            
-            <p class="hero-description">
-                Estúdio especializado em <span class="highlight">Modelagem 3D</span>, 
-                <span class="highlight">VFX</span> e <span class="highlight">CGI</span>. 
-                Criamos mundos, personagens e efeitos visuais que transformam ideias em experiências imersivas.
-            </p>
-            
-            <div class="hero-actions">
-                <a href="portfolio.html" class="btn-primary">
-                    <span>VER PORTFÓLIO</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                </a>
-                <a href="#services" class="btn-secondary">NOSSOS SERVIÇOS</a>
+    <main>
+        <section class="hero">
+            <div class="container scroll-reveal">
+                <h1>Dimensões de uma <span class="highlight-text">Imaginação</span></h1>
+                <p>Sites, Modelagem 3D e CGI para transcender a realidade.</p>
+                <a href="universo.html" class="cta-button">EXPLORAR O UNIVERSO</a>
             </div>
-        </div>
-        
-        <div class="hero-scroll">
-            <div class="scroll-line"></div>
-            <span>EXPLORAR</span>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Serviços -->
-    <section class="dimen6-services" id="services">
-        <div class="section-header">
-            <h2 class="section-title">ESPECIALIDADES</h2>
-            <p class="section-subtitle">O que criamos na sexta dimensão</p>
-        </div>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#0AF444" stroke-width="2"/>
-                        <path d="M2 17L12 22L22 17" stroke="#0AF444" stroke-width="2"/>
-                        <path d="M2 12L12 17L22 12" stroke="#0AF444" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>MODELAGEM 3D</h3>
-                <p>Criação de objetos, cenários e personagens tridimensionais para games, filmes e visualizações arquitetônicas.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 2V22M2 12H22" stroke="#34ACBB" stroke-width="2"/>
-                        <circle cx="12" cy="12" r="4" stroke="#34ACBB" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>EFEITOS VISUAIS (VFX)</h3>
-                <p>Integração de elementos digitais em cenas reais, explosões, simulações físicas e ambientes fantásticos.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 3L19 12L5 21V3Z" stroke="#9F8B88" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>ANIMAÇÃO CGI</h3>
-                <p>Produção de animações realistas e criativas para publicidade, filmes e conteúdos digitais.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sobre -->
-    <section class="dimen6-about">
-        <div class="about-container">
-            <div class="about-content">
-                <h2 class="about-title">SOBRE A DIMEN6</h2>
-                <p class="about-text">
-                    Na <strong>DIMEN6</strong>, damos vida a ideias através da modelagem 3D, VFX e CGI. 
-                    Criando e chamando atenção para games, animações, publicidade e projetos audiovisuais.
-                </p>
-                <p class="about-text">
-                    Com criatividade e tecnologia, desenvolvemos cenários, personagens, efeitos visuais 
-                    e animações realistas que elevam a qualidade e a imersão de qualquer projeto.
-                </p>
-                <div class="about-tagline">
-                    <span>DIMEN6</span>
-                    <span class="tagline-dash">—</span>
-                    <span>DIMENSÕES DE UMA IMAGINAÇÃO EM REALIDADE</span>
-                </div>
-            </div>
-            
-            <div class="about-visual">
-                <div class="visual-grid">
-                    <div class="visual-item" style="background-color: #0AF444;"></div>
-                    <div class="visual-item" style="background-color: #34ACBB;"></div>
-                    <div class="visual-item" style="background-color: #9F8B88;"></div>
-                    <div class="visual-item" style="background-color: #D7EFC2;"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfólio Preview -->
-    <section class="dimen6-portfolio-preview">
-        <div class="section-header">
-            <h2 class="section-title">TRABALHOS RECENTES</h2>
-            <a href="portfolio.html" class="view-all">VER TODOS →</a>
-        </div>
-        
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <div class="portfolio-image" style="background: linear-gradient(45deg, #0AF444, #34ACBB);">
-                    <div class="portfolio-overlay">
-                        <h3>PROJETO HYPERCUBE</h3>
-                        <p>Modelagem 3D & Animação</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="portfolio-item">
-                <div class="portfolio-image" style="background: linear-gradient(45deg, #9F8B88, #D7EFC2);">
-                    <div class="portfolio-overlay">
-                        <h3>EFFECTS REEL 2024</h3>
-                        <p>VFX & Compositing</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="portfolio-item">
-                <div class="portfolio-image" style="background: linear-gradient(45deg, #34ACBB, #0AF444);">
-                    <div class="portfolio-overlay">
-                        <h3>CHARACTER DESIGN</h3>
-                        <p>CGI & Rigging</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Orçamento -->
-    <section class="dimen6-cta" id="quote">
-        <div class="cta-container">
-            <h2 class="cta-title">PRONTO PARA LEVAR SEU PROJETO PARA OUTRA DIMENSÃO?</h2>
-            <p class="cta-text">Solicite um orçamento personalizado para seu projeto de 3D, VFX ou CGI.</p>
-            <a href="contact.html" class="btn-primary btn-large">
-                <span>SOLICITAR ORÇAMENTO</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
-                </svg>
-            </a>
-        </div>
-    </section>
-
-    <!-- Rodapé -->
-    <footer class="dimen6-footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <div class="logo-d6-small">D6</div>
-                    <div class="logo-text-small">
-                        <span>DIMEN</span>
-                        <span class="logo-six">6</span>
-                    </div>
-                </div>
-                <p class="footer-tagline">Dimensões de uma imaginação em realidade</p>
-                <div class="footer-social">
-                    <a href="#" class="social-link">Behance</a>
-                    <a href="#" class="social-link">ArtStation</a>
-                    <a href="#" class="social-link">Instagram</a>
-                    <a href="#" class="social-link">LinkedIn</a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <div class="link-group">
-                    <h4>SERVIÇOS</h4>
-                    <a href="services.html">Modelagem 3D</a>
-                    <a href="services.html">Efeitos Visuais</a>
-                    <a href="services.html">Animação CGI</a>
-                    <a href="services.html">Motion Graphics</a>
-                </div>
-                
-                <div class="link-group">
-                    <h4>EMPRESA</h4>
-                    <a href="index.html">Início</a>
-                    <a href="portfolio.html">Portfólio</a>
-                    <a href="#about">Sobre</a>
-                    <a href="contact.html">Contato</a>
-                </div>
-                
-                <div class="link-group">
-                    <h4>CONTATO</h4>
-                    <a href="mailto:contato@dimen6.com">contato@dimen6.com</a>
-                    <a href="tel:+5511999999999">+55 11 99999-9999</a>
-                    <span>São Paulo, Brasil</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 DIMEN6 Studio. Todos os direitos reservados.</p>
-            <p>Modelagem 3D • VFX • CGI • Animação</p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DIMEN6. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
-    
-    <script>
-        // Inicializar background 3D
-        function init3DBackground() {
-            const canvas = document.getElementById('threejs-canvas');
-            if (!canvas) return;
-            
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-            
-            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-            renderer.setClearColor(0x000000, 0);
-            
-            // Criar geometrias dimensionais
-            const geometries = [
-                new THREE.BoxGeometry(1, 1, 1),
-                new THREE.IcosahedronGeometry(0.8, 0),
-                new THREE.TorusKnotGeometry(0.6, 0.2, 100, 16)
-            ];
-            
-            const materials = [
-                new THREE.MeshBasicMaterial({ color: 0x0AF444, wireframe: true }),
-                new THREE.MeshBasicMaterial({ color: 0x34ACBB, wireframe: true }),
-                new THREE.MeshBasicMaterial({ color: 0x9F8B88, wireframe: true })
-            ];
-            
-            const meshes = [];
-            geometries.forEach((geom, i) => {
-                const mesh = new THREE.Mesh(geom, materials[i]);
-                mesh.position.set(
-                    (Math.random() - 0.5) * 10,
-                    (Math.random() - 0.5) * 10,
-                    (Math.random() - 0.5) * 10
-                );
-                scene.add(mesh);
-                meshes.push(mesh);
-            });
-            
-            camera.position.z = 5;
-            
-            // Animação
-            function animate() {
-                requestAnimationFrame(animate);
-                
-                meshes.forEach((mesh, i) => {
-                    mesh.rotation.x += 0.005 * (i + 1);
-                    mesh.rotation.y += 0.01 * (i + 1);
-                    mesh.rotation.z += 0.003 * (i + 1);
-                });
-                
-                renderer.render(scene, camera);
-            }
-            
-            // Resize handler
-            window.addEventListener('resize', () => {
-                camera.aspect = canvas.clientWidth / canvas.clientHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-            });
-            
-            animate();
-        }
-        
-        // Menu mobile
-        document.getElementById('menuToggle')?.addEventListener('click', function() {
-            document.querySelector('.dimen6-nav').classList.toggle('active');
-            this.classList.toggle('active');
-        });
-        
-        // Inicializar quando o DOM carregar
-        document.addEventListener('DOMContentLoaded', () => {
-            init3DBackground();
-            
-            // Animar elementos ao scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                    }
-                });
-            }, observerOptions);
-            
-            document.querySelectorAll('.service-card, .portfolio-item').forEach(el => {
-                observer.observe(el);
-            });
-            
-            console.log(`
-                ╔══════════════════════════════╗
-                ║    DIMEN6 STUDIO             ║
-                ║    PORTFÓLIO PROFISSIONAL    ║
-                ╚══════════════════════════════╝
-            `);
-        });
-    </script>
 </body>
 </html>
