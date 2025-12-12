@@ -6,6 +6,7 @@ const header = document.getElementById('header');
 // Menu toggle para mobile
 menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
     
     // Troca ícone do menu
     const icon = menuToggle.querySelector('i');
@@ -22,9 +23,23 @@ menuToggle.addEventListener('click', () => {
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
         menuToggle.querySelector('i').classList.add('fa-bars');
         menuToggle.querySelector('i').classList.remove('fa-times');
     });
+});
+
+// Fechar menu ao tocar fora (touch devices)
+document.addEventListener('click', (e) => {
+    const isMenuButton = menuToggle.contains(e.target);
+    const isNavLink = navLinks.contains(e.target);
+    
+    if (!isMenuButton && !isNavLink && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.querySelector('i').classList.add('fa-bars');
+        menuToggle.querySelector('i').classList.remove('fa-times');
+    }
 });
 
 // Efeito de Header Scrolled
@@ -34,7 +49,7 @@ window.addEventListener('scroll', () => {
     } else {
         header.classList.remove('scrolled');
     }
-});
+}, { passive: true });
 
 // Smooth Scroll moderno
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -72,7 +87,7 @@ window.addEventListener('scroll', () => {
             link.classList.add('active');
         }
     });
-});
+}, { passive: true });
 
 // Animação Scroll Reveal (Novo)
 const revealElements = document.querySelectorAll('.scroll-reveal');
@@ -89,6 +104,24 @@ function checkReveal() {
     });
 }
 
-window.addEventListener('scroll', checkReveal);
+window.addEventListener('scroll', checkReveal, { passive: true });
 // Chama uma vez no carregamento
 checkReveal();
+
+// Otimização: Lazy loading para imagens
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src || img.src;
+                img.classList.remove('lazy');
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}

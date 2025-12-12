@@ -83,7 +83,7 @@ header.scrolled {
 }
 
 .nav-links li {
-    margin-left: 40px;
+    margin-left: 30px;
 }
 
 .nav-links a {
@@ -144,7 +144,7 @@ header.scrolled {
 
 .hero h1 {
     font-family: var(--font-heading);
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 5vw, 3rem);
     margin-bottom: 20px;
     line-height: 1.2;
 }
@@ -155,12 +155,13 @@ header.scrolled {
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
     margin-bottom: 40px;
     color: var(--text-gray);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 15px;
 }
 
 /* Botões */
@@ -169,14 +170,15 @@ header.scrolled {
     background: transparent;
     color: var(--primary);
     border: 1px solid var(--primary);
-    padding: 15px 40px;
+    padding: clamp(12px, 3vw, 15px) clamp(25px, 5vw, 40px);
     font-family: var(--font-heading);
     text-decoration: none;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%); /* Formato futurista */
+    font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
 .cta-button:hover {
@@ -193,10 +195,11 @@ button.cta-button {
 /* --- Títulos de Seção --- */
 .section-title {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     text-align: center;
     margin-bottom: 60px;
     letter-spacing: 4px;
+    padding: 0 15px;
 }
 
 .section-title span {
@@ -205,7 +208,7 @@ button.cta-button {
 }
 
 /* --- Sobre --- */
-.about {
+.about {clamp(50px, 10vw, 100px)
     padding: 100px 0;
     background: var(--bg-dark);
 }
@@ -213,7 +216,8 @@ button.cta-button {
 .about-content {
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .about-text {
@@ -232,8 +236,9 @@ button.cta-button {
 }
 
 .tech-list {
-    list-style: none;
-    display: flex;
+    list-15px;
+    margin-top: 20px;
+    flex-wrap: wrap
     gap: 20px;
     margin-top: 20px;
 }
@@ -273,7 +278,7 @@ button.cta-button {
     transform: scale(1.05);
     opacity: 1;
 }
-
+clamp(50px, 10vw, 100px)
 /* --- Serviços --- */
 .services {
     padding: 100px 0;
@@ -282,8 +287,8 @@ button.cta-button {
 }
 
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: grid;280px, 1fr));
+    gap: 2emplate-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
@@ -315,7 +320,7 @@ button.cta-button {
     margin-bottom: 15px;
     color: var(--text-white);
 }
-
+clamp(50px, 10vw, 100px)
 /* --- Contato --- */
 .contact {
     padding: 100px 0;
@@ -424,7 +429,123 @@ footer {
         transition: transform 0.3s ease;
     }
     
-    .nav-links.active { transform: translateX(0); }
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .about-text,
+    .about-image {
+        flex: 1 1 100%;
+    }
+    
+    .section-title {
+        margin-bottom: 40px;
+    }
+    
+    .service-card {
+        padding: 30px 20px;
+    }
+    
+    .service-icon {
+        font-size: 2rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .contact-wrapper {
+        padding: 0 20px;
+    }
+    
+    .hero-logo-svg {
+        height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px 0;
+    }
+    
+    .logo-svg {
+        height: 30px;
+    }
+    
+    .nav-links a {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .hero {
+        height: 80vh;
+    }
+    
+    .hero-content {
+        padding: 0 15px;
+    }
+    
+    .hero-logo-svg {
+        height: 50px;
+        margin-bottom: 15px;
+    }
+    
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+    
+    button.cta-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+    }
+    
+    .tech-list li {
+        font-size: 0.7rem;
+        padding: 8px 15px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .service-card {
+        padding: 25px 15px;
+    }
+    
+    .service-icon {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px;
+        font-size: 16px; /* Evita zoom ao focar em inputs em iOS */
+    }
+    
+    .footer-logo-svg {
+        height: 40px;
+    }
+    
+    .social-links {
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .social-links a {
+        font-size: 1.2rem;
+    }
+    
+    .copyright {
+        font-size: 0.7rem;
+   rm: translateX(0); }
     .nav-links li { margin: 20px 0; }
     .about-content { flex-direction: column; }
     .hero h1 { font-size: 2rem; }
