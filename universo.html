@@ -3,85 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIMEN6 - Universo</title>
+    <title>DIMEN6 - Universo dos Serviços</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* Estrelas apenas nesta página para não pesar as outras */
-        #starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
-        .star { position: absolute; background: white; border-radius: 50%; animation: twinkle var(--duration) infinite; }
-        @keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
-        /* Animação de flutuar extra para esta página */
-        .artifact-card { animation: float 6s ease-in-out infinite; }
-        .artifact-card:nth-child(even) { animation-delay: 1s; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        :root {
+            --bg-color: #02020a;
+            --card-bg: #0a0a14;
+            --text-light: #ffffff;
+            --text-grey: #cccccc;
+            --accent-color: #8a2be2; /* Purple/Blue accent from the image */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header and Nav styles */
+        #header {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Services Section Styles */
+        .services {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .service-card p {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid #1a1a2e;
+        }
+
+        footer p {
+            color: var(--text-grey);
+        }
     </style>
 </head>
 <body>
-    <div id="starfield"></div>
 
     <header id="header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo"><span style="color:white; font-size:1.5rem;">DIMEN6</span></a>
-            <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+        <div class="container">
+            <a href="#" class="logo">DIMEN6</a>
             <nav>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="universo.html" class="active">Universo</a></li>
+                <ul class="nav-links">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">SOBRE</a></li>
+                    <li><a href="#">SERVIÇOS</a></li>
+                    <li><a href="#">CONTATO</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="container" style="padding-top: 120px; padding-bottom: 60px;">
-        <h1 class="section-title scroll-reveal" style="text-align:center; margin-bottom: 40px;">Nossos <span>Artefatos</span></h1>
-        
-        <div class="artifacts-grid">
-            <article class="artifact-card scroll-reveal">
-                <i class="fas fa-globe artifact-icon"></i>
-                <h3>Websites</h3>
-                <p>Portais interplanetários acessíveis de qualquer lugar.</p>
-            </article>
-            <article class="artifact-card scroll-reveal">
-                <i class="fas fa-cube artifact-icon"></i>
-                <h3>Modelagem 3D</h3>
-                <p>Criação de assets e ambientes com topologia otimizada.</p>
-            </article>
-            <article class="artifact-card scroll-reveal">
-                <i class="fas fa-wand-magic-sparkles artifact-icon"></i>
-                <h3>VFX & Motion</h3>
-                <p>Efeitos visuais cinematográficos e motion graphics.</p>
-            </article>
-            <article class="artifact-card scroll-reveal">
-                <i class="fas fa-fingerprint artifact-icon"></i>
-                <h3>Identidade Visual</h3>
-                <p>Marcas memoráveis para o multiverso.</p>
-            </article>
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-globe service-icon"></i>
+                    <h3>SITES</h3>
+                    <p>Criação de sites em geral para qualquer um acessar de qualquer lugar.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-lightbulb service-icon"></i>
+                    <h3>IDENTIDADE VISUAL</h3>
+                    <p>Criamos identidades visuais memoráveis para que nem você e nem ninguém esqueça da sua marca.</p>
+                </div>
+                  <div class="service-card">
+                    <i class="fas fa-palette service-icon"></i>
+                    <h3>ARTES GRAFICAS</h3>
+                    <p>Desenvolvimento artes e identidades visuais para redes sociais ou empresas.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cube service-icon"></i>
+                    <h3>MODELAGEM 3D</h3>
+                    <p>Criação de assets, personagens e ambientes detalhados com topologia otimizada para render ou real-time.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-wand-magic-sparkles service-icon"></i>
+                    <h3>VFX</h3>
+                    <p>Efeitos visuais cinematográficos, simulações de partículas, fluidos e integração live-action.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-clapperboard service-icon"></i>
+                    <h3>CGI</h3>
+                    <p>Imagens ou vídeos realistas totalmentes gerados por computador, sua campanha de publicidade nível Avatar.</p>
+                </div>
+            </div>
         </div>
-    </main>
+    </section>
 
     <footer>
-        <div class="container"><p>&copy; 2025 DIMEN6.</p></div>
+        <div class="container">
+            <p>&copy; 2024 DIMEN6. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script>
-        // Script simples das estrelas
-        function createStars() {
-            const container = document.getElementById('starfield');
-            for(let i=0; i<100; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random()*100 + '%';
-                star.style.top = Math.random()*100 + '%';
-                star.style.width = star.style.height = Math.random()*3 + 'px';
-                star.style.setProperty('--duration', (Math.random()*3+2)+'s');
-                container.appendChild(star);
-            }
-        }
-        createStars();
-    </script>
 </body>
 </html>
