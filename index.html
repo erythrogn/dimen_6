@@ -8,60 +8,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="all">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <style>
-        /* Critical CSS for mobile */
-        * {
-            -webkit-tap-highlight-color: transparent;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            touch-action: manipulation;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .menu-toggle {
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: white;
-            z-index: 1002;
-        }
-        
-        .nav-links {
-            transition: all 0.3s ease;
-        }
-        
-        /* Prevent zoom on input focus for mobile */
-        @media screen and (max-width: 768px) {
-            input, textarea {
-                font-size: 16px !important;
-            }
-        }
-        
-        /* Touch-friendly button sizes */
-        button, 
-        .cta-button,
-        a.cta-button {
-            min-height: 44px;
-            min-width: 44px;
-        }
-        
-        .nav-links li a {
-            padding: 12px 0;
-            display: block;
-        }
+        /* Critical CSS mantido */
+        * { -webkit-tap-highlight-color: transparent; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body { margin: 0; padding: 0; overflow-x: hidden; touch-action: manipulation; }
+        img { max-width: 100%; height: auto; display: block; }
+        .menu-toggle { cursor: pointer; font-size: 1.5rem; color: white; z-index: 1002; }
+        .nav-links { transition: all 0.3s ease; }
+        @media screen and (max-width: 768px) { input, textarea { font-size: 16px !important; } }
+        button, .cta-button, a.cta-button { min-height: 44px; min-width: 44px; }
+        .nav-links li a { padding: 12px 0; display: block; }
     </style>
 </head>
 <body>
@@ -77,8 +34,8 @@
             <nav aria-label="Navegação principal">
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#services">Servicos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="#services">Serviços</a></li>
                     <li><a href="#contact">Contato</a></li>
                 </ul>
             </nav>
@@ -92,48 +49,28 @@
                 <img src="logo.svg" alt="DIMEN6 Logo" class="hero-logo-svg" loading="eager" width="200" height="67">
             </div>
             <h1>Dimensoes de uma <span class="highlight-text">Imaginacao</span> em Realidade</h1>
-            <p>Na DIMEN6, damos vida a ideias atraves de Sites, modelagem 3D, e CGI. Criando experiencias imersivas para publicidade.</p>
-            <a href="#about" class="cta-button" role="button">EXPLORAR O UNIVERSO</a>
+            <p>Na DIMEN6, damos vida a ideias através de Sites, modelagem 3D, e CGI. Criando experiências imersivas para publicidade.</p>
+            <a href="universo.html" class="cta-button" role="button">EXPLORAR O UNIVERSO</a>
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Sobre a <span>DIMEN6</span></h2>
-            <div class="about-content">
-                <div class="about-text scroll-reveal">
-                    <p>Somos um estudio focado em <span class="highlight">transcender o comum</span>. Utilizando as mais recentes tecnologias de renderizacao e modelagem, elaboração de sites chamativos, transformamos conceitos abstratos em visuais de tirar o folego.</p>
-                    <p>Seja para um comercial de alto impacto ou para a criacao de publicidade, nossa missão e conectar a imaginação humana a realidade digital.</p>
-                    <ul class="tech-list" role="list">
-                         <li role="listitem"><i class="fas fa-code" aria-hidden="true"></i> VS Code</li>
-                        <li role="listitem"><i class="fas fa-cube" aria-hidden="true"></i> Blender</li>
-                        <li role="listitem"><i class="fas fa-palette" aria-hidden="true"></i> Adobe</li>
-                        <li role="listitem"><i class="fas fa-video" aria-hidden="true"></i> After Effects</li>
-                    </ul>
-                </div>
-                <div class="about-image scroll-reveal">
-                    <img src="3.jpg" alt="Ambiente 3D Futurista" loading="lazy" width="600" height="400">
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title scroll-reveal">Nossos <span>Servicos</span></h2>
+            <h2 class="section-title scroll-reveal">Nossos <span>Serviços</span></h2>
             <div class="services-grid">
                 <div class="service-card scroll-reveal" role="article">
                     <i class="fas fa-globe service-icon" aria-hidden="true"></i>
                     <h3>Sites</h3>
-                    <p>Criacao de sites em geral para qualquer um acessar de qualquer lugar.</p>
+                    <p>Criação de sites em geral para qualquer um acessar de qualquer lugar.</p>
                 </div>
-                  <div class="service-card scroll-reveal" role="article">
+                <div class="service-card scroll-reveal" role="article">
                     <i class="fas fa-lightbulb service-icon" aria-hidden="true"></i>
                     <h3>Identidade Visual</h3>
-                    <p>Criamos identidades visuais memoraveis para que nem voce e nem ninguem esqueça da sua marca.</p>
+                    <p>Criamos identidades visuais memoráveis para que nem você e nem ninguém esqueça da sua marca.</p>
                 </div>
                  <div class="service-card scroll-reveal" role="article">
                     <i class="fas fa-palette service-icon" aria-hidden="true"></i>
-                    <h3>Artes Graficas</h3>
+                    <h3>Artes Gráficas</h3>
                     <p>Desenvolvimento artes e identidades visuais para redes sociais ou empresas.</p>
                 </div>
                 <div class="service-card scroll-reveal" role="article">
@@ -149,7 +86,7 @@
                 <div class="service-card scroll-reveal" role="article">
                     <i class="fas fa-clapperboard service-icon" aria-hidden="true"></i>
                     <h3>CGI</h3>
-                    <p>Imagens ou videos realistas totalmentes gerados por computador, sua campanha de publicidade nivel Avatar</p>
+                    <p>Imagens ou vídeos realistas totalmentes gerados por computador, sua campanha de publicidade nível Avatar</p>
                 </div>
             </div>
         </div>
@@ -181,14 +118,12 @@
                 <img src="logo.svg" alt="DIMEN6" class="footer-logo-svg" loading="lazy" width="100" height="33" onerror="this.style.display='none'">
             </div>
             <p class="footer-text">Transformando imaginação em realidade.</p>
-            
             <div class="social-links" role="list">
                 <a href="#" title="Instagram" aria-label="Instagram" role="listitem"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                 <a href="#" title="ArtStation" aria-label="ArtStation" role="listitem"><i class="fab fa-artstation" aria-hidden="true"></i></a>
                 <a href="#" title="LinkedIn" aria-label="LinkedIn" role="listitem"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                 <a href="#" title="YouTube" aria-label="YouTube" role="listitem"><i class="fab fa-youtube" aria-hidden="true"></i></a>
             </div>
-            
             <div class="copyright">
                 &copy; 2025 DIMEN6. Todos os direitos reservados.
             </div>
@@ -196,11 +131,8 @@
     </footer>
 
     <script>
-        // Critical JavaScript for mobile
         (function() {
             'use strict';
-            
-            // Menu toggle for mobile
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
             
@@ -212,32 +144,18 @@
                     menuToggle.setAttribute('aria-expanded', !isExpanded);
                     navLinks.classList.toggle('active');
                 });
-                
-                // Close menu when clicking outside
                 document.addEventListener('click', function(e) {
                     if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
                         menuToggle.setAttribute('aria-expanded', 'false');
                         navLinks.classList.remove('active');
                     }
                 });
-                
-                // Close menu on link click for mobile
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        if (window.innerWidth <= 768) {
-                            menuToggle.setAttribute('aria-expanded', 'false');
-                            navLinks.classList.remove('active');
-                        }
-                    });
-                });
             }
-            
-            // Smooth scroll for anchor links
+            // Smooth scroll
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
                     if (href === '#') return;
-                    
                     e.preventDefault();
                     const targetElement = document.querySelector(href);
                     if (targetElement) {
@@ -248,8 +166,6 @@
                     }
                 });
             });
-            
-            // Load non-critical CSS asynchronously
             function loadCSS(href) {
                 const link = document.createElement('link');
                 link.rel = 'stylesheet';
@@ -258,20 +174,15 @@
                 link.onload = function() { this.media = 'all'; };
                 document.head.appendChild(link);
             }
-            
-            // Set viewport height for mobile browsers
             function setVH() {
                 let vh = window.innerHeight * 0.01;
                 document.documentElement.style.setProperty('--vh', vh + 'px');
             }
-            
             setVH();
             window.addEventListener('resize', setVH);
             window.addEventListener('orientationchange', setVH);
-            
         })();
     </script>
-    
     <script src="script.js" defer></script>
 </body>
 </html>
