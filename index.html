@@ -63,6 +63,63 @@
         }
     </style>
 </head>
+ </body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const emailInput = document.querySelector('.email-input');
+    const validationDiv = document.querySelector('.email-validation');
+    
+    if (emailInput) {
+        emailInput.addEventListener('input', function() {
+            validateEmail(this.value);
+        });
+        
+        emailInput.addEventListener('blur', function() {
+            if (this.value) validateEmail(this.value);
+        });
+        
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!email) {
+                emailInput.classList.remove('valid', 'invalid');
+                validationDiv.classList.remove('show', 'valid', 'invalid');
+                return;
+            }
+            
+            if (emailRegex.test(email)) {
+                emailInput.classList.remove('invalid');
+                emailInput.classList.add('valid');
+                validationDiv.textContent = '✓ Email válido';
+                validationDiv.classList.remove('invalid');
+                validationDiv.classList.add('valid', 'show');
+            } else {
+                emailInput.classList.remove('valid');
+                emailInput.classList.add('invalid');
+                validationDiv.textContent = '✗ Formato de email inválido';
+                validationDiv.classList.remove('valid');
+                validationDiv.classList.add('invalid', 'show');
+            }
+        }
+    }
+    
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            const email = emailInput.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailRegex.test(email)) {
+                e.preventDefault();
+                emailInput.focus();
+                emailInput.classList.add('invalid');
+                validationDiv.textContent = '✗ Por favor, insira um email válido antes de enviar';
+                validationDiv.classList.add('invalid', 'show');
+            }
+        });
+    }
+});
+</script>
 <body>
     <header id="header">
         <div class="container nav-container">
@@ -116,63 +173,42 @@
             </div>
         </div>
     </section>
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Nossos <span>Servicos</span></h2>
-            <div class="services-grid">
-                <div class="service-card scroll-reveal" role="article">
-                    <i class="fas fa-globe service-icon" aria-hidden="true"></i>
-                    <h3>Sites</h3>
-                    <p>Criacao de sites em geral para qualquer um acessar de qualquer lugar.</p>
-                </div>
-                  <div class="service-card scroll-reveal" role="article">
-                    <i class="fas fa-lightbulb service-icon" aria-hidden="true"></i>
-                    <h3>Identidade Visual</h3>
-                    <p>Criamos identidades visuais memoraveis para que nem voce e nem ninguem esqueça da sua marca.</p>
-                </div>
-                 <div class="service-card scroll-reveal" role="article">
-                    <i class="fas fa-palette service-icon" aria-hidden="true"></i>
-                    <h3>Artes Graficas</h3>
-                    <p>Desenvolvimento artes e identidades visuais para redes sociais ou empresas.</p>
-                </div>
-                <div class="service-card scroll-reveal" role="article">
-                    <i class="fas fa-cube service-icon" aria-hidden="true"></i>
-                    <h3>Modelagem 3D</h3>
-                    <p>Criação de assets, personagens e ambientes detalhados com topologia otimizada para render ou real-time.</p>
-                </div>
-                <div class="service-card scroll-reveal" role="article">
-                    <i class="fas fa-wand-magic-sparkles service-icon" aria-hidden="true"></i>
-                    <h3>VFX</h3>
-                    <p>Efeitos visuais cinematográficos, simulações de partículas, fluidos e integração live-action.</p>
-                </div>
-                <div class="service-card scroll-reveal" role="article">
-                    <i class="fas fa-clapperboard service-icon" aria-hidden="true"></i>
-                    <h3>CGI</h3>
-                    <p>Imagens ou videos realistas totalmentes gerados por computador, sua campanha de publicidade nivel Avatar</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Inicie o <span>Projeto</span></h2>
-            <div class="contact-wrapper scroll-reveal">
-                <form class="contact-form" aria-label="Formulário de contato">
-                    <div class="form-group">
-                        <input type="text" placeholder="Seu Nome" required aria-label="Seu nome">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Seu Email" required aria-label="Seu email">
-                    </div>
-                    <div class="form-group">
-                        <textarea rows="5" placeholder="Descreva sua ideia..." required aria-label="Descrição da ideia"></textarea>
-                    </div>
-                    <button type="submit" class="cta-button">ENVIAR MENSAGEM</button>
-                </form>
-            </div>
-        </div>
-    </section>
+   <form class="contact-form" action="https://formsubmit.co/janaran52@gmail.com" method="POST" aria-label="Formulário de contato">
+    
+    <input type="hidden" name="_subject" value="Novo contato via Site DIMEN6!">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
 
+    <div class="form-group">
+        <input type="text" name="nome" placeholder="Seu Nome" required aria-label="Seu nome">
+    </div>
+    
+    <div class="form-group email-group">
+        <div class="input-with-icon">
+            <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <input type="email" name="email" placeholder="seu@email.com" required aria-label="Seu email" class="email-input">
+        </div>
+        <small class="email-hint">Usaremos apenas para responder sua mensagem</small>
+        <div class="email-validation" aria-live="polite"></div>
+    </div>
+    
+    <div class="form-group">
+        <textarea name="mensagem" rows="5" placeholder="Descreva sua ideia ou projeto..." required aria-label="Descrição da ideia"></textarea>
+    </div>
+    
+    <div class="form-footer">
+        <button type="submit" class="cta-button">
+            <span class="button-text">ENVIAR MENSAGEM</span>
+            <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+        </button>
+    </div>
+</form>
     <footer>
         <div class="container">
             <div class="footer-logo">
@@ -184,7 +220,6 @@
                 <a href="#" title="Instagram" aria-label="Instagram" role="listitem"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                 <a href="#" title="ArtStation" aria-label="ArtStation" role="listitem"><i class="fab fa-artstation" aria-hidden="true"></i></a>
                 <a href="#" title="LinkedIn" aria-label="LinkedIn" role="listitem"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                <a href="#" title="YouTube" aria-label="YouTube" role="listitem"><i class="fab fa-youtube" aria-hidden="true"></i></a>
             </div>
             
             <div class="copyright">

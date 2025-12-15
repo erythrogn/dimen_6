@@ -503,4 +503,224 @@ footer {
     .tech-list {
         justify-content: center;
     }
+    /* Adicione estas regras ao seu CSS existente */
+
+.contact-form .form-group {
+    margin-bottom: 25px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(10, 21, 37, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 243, 255, 0.1),
+                0 0 20px rgba(0, 243, 255, 0.1);
+    background: rgba(10, 21, 37, 0.9);
+}
+
+/* Estilos específicos para o grupo de email */
+.email-group {
+    position: relative;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    color: var(--text-gray);
+    transition: color 0.3s ease;
+    pointer-events: none;
+}
+
+.email-input {
+    padding-left: 50px !important;
+    padding-right: 15px;
+    height: 56px;
+    font-size: 1.05rem;
+    background: rgba(10, 21, 37, 0.9) !important;
+}
+
+.email-input:focus {
+    padding-left: 50px;
+}
+
+.email-input:focus + .input-icon {
+    color: var(--primary);
+}
+
+.email-hint {
+    display: block;
+    margin-top: 8px;
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    opacity: 0.8;
+    padding-left: 50px;
+    transition: opacity 0.3s ease;
+}
+
+.email-input:focus ~ .email-hint {
+    opacity: 1;
+    color: var(--primary-dark);
+}
+
+/* Validação de email */
+.email-validation {
+    min-height: 20px;
+    margin-top: 5px;
+    padding-left: 50px;
+    font-size: 0.85rem;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+.email-validation.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.email-validation.valid {
+    color: #2ecc71;
+}
+
+.email-validation.invalid {
+    color: #e74c3c;
+}
+
+/* Estado de sucesso do input */
+.email-input.valid {
+    border-color: rgba(46, 204, 113, 0.5);
+    box-shadow: 0 0 0 1px rgba(46, 204, 113, 0.1);
+}
+
+.email-input.invalid {
+    border-color: rgba(231, 76, 60, 0.5);
+    box-shadow: 0 0 0 1px rgba(231, 76, 60, 0.1);
+}
+
+/* Estilo do botão de envio */
+.form-footer {
+    margin-top: 40px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 16px 45px;
+    font-family: var(--font-heading);
+    text-decoration: none;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.button-icon {
+    transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+    .cta-button:hover {
+        background: var(--primary);
+        color: var(--bg-dark);
+        box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+    }
+    
+    .cta-button:hover .button-icon {
+        transform: translateX(4px);
+    }
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+    background: rgba(0, 243, 255, 0.2);
+}
+
+.cta-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.cta-button:disabled:hover {
+    background: transparent;
+    color: var(--primary);
+    box-shadow: none;
+}
+
+/* Animações */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 243, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0); }
+}
+
+.contact-form input:focus {
+    animation: pulse 2s infinite;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .email-input {
+        height: 52px;
+        font-size: 1rem;
+    }
+    
+    .input-icon {
+        left: 12px;
+    }
+    
+    .email-input {
+        padding-left: 45px !important;
+    }
+    
+    .email-hint,
+    .email-validation {
+        padding-left: 45px;
+    }
+    
+    .cta-button {
+        padding: 14px 30px;
+        max-width: 100%;
+    }
+}
+
+/* Placeholder estilizado */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-gray);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.contact-form input:focus::placeholder,
+.contact-form textarea:focus::placeholder {
+    opacity: 0.5;
+}
 }
