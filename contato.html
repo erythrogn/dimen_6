@@ -126,5 +126,128 @@
     </div>
 
     <script src="script.js"></script>
+     <script>
+        (function() {
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+
+            const particleCount = 100; // Quantidade de pontos
+            const connectionDistance = 200; // Distância para conectar linhas
+            const mouseDistance = 200; // Raio de interação do mouse
+
+            let mouse = { x: null, y: null };
+
+            // Ajusta tamanho do canvas
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight; // Pega a altura da tela toda ou do pai
+            }
+
+            // Classe Partícula
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 1.5; // Velocidade X
+                    this.vy = (Math.random() - 0.5) * 1.5; // Velocidade Y
+                    this.size = Math.random() * 2 + 1;
+                    this.color = '#00F3FF'; // Cor Cyan da sua marca
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                 
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                    // Interação com mouse
+                    if (mouse.x != null) {
+                        let dx = mouse.x - this.x;
+                        let dy = mouse.y - this.y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < mouseDistance) {
+                            const forceDirectionX = dx / distance;
+                            const forceDirectionY = dy / distance;
+                            const force = (mouseDistance - distance) / mouseDistance;
+                            const directionX = forceDirectionX * force * 3; 
+                            const directionY = forceDirectionY * force * 3;
+                        
+                            this.x -= directionX;
+                            this.y -= directionY;
+                        }
+                    }
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+            }
+
+            // Inicializar
+            function init() {
+                particles = [];
+                resize();
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            // Animar
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+
+                    // Desenhar conexões
+                    for (let j = i; j < particles.length; j++) {
+                        let dx = particles[i].x - particles[j].x;
+                        let dy = particles[i].y - particles[j].y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < connectionDistance) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(0, 243, 255, ${1 - distance / connectionDistance})`; // Transparência baseada na distância
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+
+            // Eventos
+            window.addEventListener('resize', () => {
+                resize();
+                init(); // Reinicia para não deformar
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                // Ajuste para pegar a posição relativa ao canvas se ele não ocupar a tela toda
+                // Como está na hero (fixed/absolute), pageX/Y geralmente funciona bem
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+
+            window.addEventListener('mouseout', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            init();
+            animate();
+        })();
+    </script>
 </body>
 </html>
