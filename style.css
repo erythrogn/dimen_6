@@ -1035,7 +1035,7 @@ footer {
 .mission h3 i, .vision h3 i,
 .tech-list li i,
 .step-icon {
-    background: linear-gradient(135deg, var(--secondary) 0%, #9d4edd 100%);
+    background: linear-gradient(135deg, var(--secondary) 0%, #4e6fdd 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent !important;

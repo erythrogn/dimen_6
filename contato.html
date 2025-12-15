@@ -9,6 +9,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="contato.css">
+    <style>
+        /* Estilo crítico para o Canvas de Partículas */
+        #particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Fica no fundo */
+            pointer-events: none; /* Permite clicar no formulário através dele */
+        }
+
+        /* Garante que a seção de contato seja relativa para conter o canvas absoluto */
+        .contact {
+            position: relative;
+            background: radial-gradient(circle at center, #1a2a4a 0%, #050A14 100%); /* Fundo base escuro */
+            overflow: hidden;
+        }
+
+        /* Garante que o conteúdo (formulário, título) fique acima das partículas */
+        .contact .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .loading-text .primary-color {
+            color: var(--primary, #00F3FF);
+        }
+    </style>
 </head>
 <body>
 
@@ -25,18 +54,21 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="services.html">Serviços</a></li>
-                    <li><a href="contato.html" class="active">Contato</a></li>
+                    <li><a href="contato.html" class="active" style="color:var(--primary, #00F3FF)">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="contact" id="contact">
+    <section class="contact" id="contact" style="padding-top: 140px; min-height: 100vh; display: flex; align-items: center;">
         <canvas id="particles-canvas"></canvas>
+        
         <div class="container">
             <h2 class="section-title scroll-reveal">Inicie o <span>Projeto</span></h2>
             <div class="contact-wrapper scroll-reveal">
+                
                 <form class="contact-form" action="https://formsubmit.co/janaran52@gmail.com" method="POST">
+                    
                     <input type="hidden" name="_subject" value="Novo contato via Site DIMEN6!">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
@@ -65,6 +97,7 @@
                         </button>
                     </div>
                 </form>
+
             </div>
         </div>
     </section>
@@ -72,7 +105,7 @@
     <footer>
         <div class="container">
             <div class="footer-logo">
-                <img src="logo.svg" alt="DIMEN6" class="footer-logo-svg" width="100">
+                <img src="logo.svg" alt="DIMEN6" class="footer-logo-svg" width="100" style="margin: 0 auto 20px;">
             </div>
             <p class="footer-text">Transformando imaginação em realidade.</p>
             
@@ -80,12 +113,15 @@
                 <a href="mailto:janaran52@gmail.com" title="Enviar Email" aria-label="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
+                
                 <a href="https://wa.me/5594992691894" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
+
                 <a href="https://t.me/HESRON52" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Telegram">
                     <i class="fab fa-telegram"></i>
                 </a>
+
                 <a href="https://instagram.com/dimen_6_" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
@@ -122,6 +158,132 @@
     </div>
 
     <script src="script.js"></script>
-    <script src="particles.js"></script>
+    
+    <script>
+        (function() {
+            const canvas = document.getElementById('particles-canvas');
+            // Só roda se o canvas existir na página
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+
+            // Configurações das partículas
+            const particleCount = 80; 
+            const connectionDistance = 150;
+            const mouseDistance = 200;
+
+            let mouse = { x: null, y: null };
+
+            function resize() {
+                // Pega o tamanho da section pai para o canvas ocupar apenas essa área
+                const parent = canvas.parentElement;
+                width = canvas.width = parent.offsetWidth;
+                height = canvas.height = parent.offsetHeight;
+            }
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 1.0; 
+                    this.vy = (Math.random() - 0.5) * 1.0;
+                    this.size = Math.random() * 2 + 1;
+                    this.color = '#00F3FF'; // Ciano Neon
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    // Rebater nas bordas
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                    // Interação com mouse
+                    if (mouse.x != null) {
+                        let dx = mouse.x - this.x;
+                        let dy = mouse.y - this.y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < mouseDistance) {
+                            const forceDirectionX = dx / distance;
+                            const forceDirectionY = dy / distance;
+                            const force = (mouseDistance - distance) / mouseDistance;
+                            const directionX = forceDirectionX * force * 2; 
+                            const directionY = forceDirectionY * force * 2;
+                        
+                            // Efeito de repulsão suave
+                            this.x -= directionX;
+                            this.y -= directionY;
+                        }
+                    }
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+            }
+
+            function init() {
+                particles = [];
+                resize();
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+
+                    // Desenhar conexões (linhas)
+                    for (let j = i; j < particles.length; j++) {
+                        let dx = particles[i].x - particles[j].x;
+                        let dy = particles[i].y - particles[j].y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < connectionDistance) {
+                            ctx.beginPath();
+                            // Linha fica mais transparente quanto mais longe
+                            ctx.strokeStyle = `rgba(0, 243, 255, ${1 - distance / connectionDistance})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', () => {
+                resize();
+                init();
+            });
+
+            // Rastrear mouse relativo ao canvas na section
+            window.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+
+            window.addEventListener('mouseout', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            // Iniciar
+            init();
+            animate();
+        })();
+    </script>
 </body>
 </html>
