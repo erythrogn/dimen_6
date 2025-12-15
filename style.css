@@ -1320,3 +1320,13 @@ footer {
     text-align: center;
     margin-top: 60px;
 }
+
+.hero-inline-logo {
+    display: inline-block;
+    height: 1.2em;
+    width: auto;
+    vertical-align: middle;
+    margin-left: 15px;
+    margin-bottom: 0.2em;
+    filter: drop-shadow(0 0 5px rgba(0, 243, 255, 0.5));
+}
