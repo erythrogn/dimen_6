@@ -3,37 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre | DIMEN6</title>
+    <title>Sobre - DIMEN6</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        /* Estilos específicos da página Sobre */
+        .about-hero {
+            padding: 140px 0 80px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(26, 42, 74, 0.8) 0%, #050A14 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 243, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-white);
+            letter-spacing: 3px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .about-page-section {
+            padding: 80px 0;
+            background-color: var(--bg-dark);
+        }
+
+        .about-page-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .mission, .vision {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .mission:hover, .vision:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .mission h3, .vision h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 35px 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.03);
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            font-family: var(--font-heading);
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            height: 70px;
+            width: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(112, 0, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 1px solid rgba(112, 0, 255, 0.3);
+        }
+
+        .step h3 {
+            font-family: var(--font-heading);
+            margin-bottom: 15px;
+            color: var(--text-white);
+            font-size: 1.3rem;
+            letter-spacing: 1.5px;
+        }
+
+        .step p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .process-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .about-page-text h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--text-white);
+            letter-spacing: 3px;
+        }
+
+        .about-page-text p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .visual-frame {
+            background: rgba(10, 21, 37, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .tech-stack h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--text-white);
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .tech-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 0;
+        }
+
+        .tech-list li {
+            background: rgba(5, 10, 20, 0.8);
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .tech-list li:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+            background: rgba(5, 10, 20, 0.9);
+        }
+
+        .tech-list li i {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+            color: var(--secondary) !important;
+        }
+
+        @media (max-width: 992px) {
+            .about-page-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: 120px 0 60px;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .about-page-text h2 {
+                font-size: 2rem;
+            }
+            
+            .tech-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .step {
+                padding: 25px 20px;
+            }
+            
+            .step-icon {
+                height: 60px;
+                width: 60px;
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
+    <header id="header">
         <div class="container nav-container">
-            <a href="index.html" class="logo-link">
-                <svg class="logo-svg" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
-                    <text x="10" y="35" font-family="'Blanka', 'Orbitron', sans-serif" font-size="24" fill="#00F3FF" style="filter: drop-shadow(0 0 2px #00F3FF);">DIMEN6</text>
-                    <line x1="10" y1="40" x2="90" y2="40" stroke="#7000FF" stroke-width="2" stroke-linecap="round"/>
-                </svg>
+            <a href="#home" class="logo" aria-label="DIMEN6 Home">
+                <img src="logo.svg" alt="DIMEN6" class="logo-svg" loading="eager" width="120" height="40" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <span style="display:none; font-family:'Orbitron'; font-size:1.5rem; color:white;">DIMEN6</span>
             </a>
-            
-            <button class="menu-toggle" type="button" aria-label="Abrir menu">
-                <i class="fas fa-bars"></i>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
-            
-            <nav>
-                <ul class="nav-links">
+            <nav aria-label="Navegacao principal">
+                <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="sobre.html" class="active">Sobre</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="services.html">Servicos</a></li>
                     <li><a href="contato.html">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
     <section class="about-hero">
         <div class="container">
             <div class="about-hero-content scroll-reveal">
@@ -46,13 +321,21 @@
     <section class="about-page-section">
         <div class="container">
             <div class="about-page-grid">
+                
                 <div class="about-page-text scroll-reveal">
                     <h2>Nossa <span class="highlight-text">Filosofia</span></h2>
-                    <p>Somos um estudio focado em transcender o comum. Utilizando as mais recentes tecnologias de renderizacao e modelagem, e elaboracao de sites chamativos, transformamos conceitos abstratos em visuais de tirar o folego.</p>
                     
-                    <p>Na <span class="highlight">DIMEN6</span>, damos vida a ideias atraves de <span class="highlight">Sites</span>, <span class="highlight">modelagem 3D</span>, e <span class="highlight">CGI</span>. Criando experiencias imersivas para publicidade e comunicacao visual.</p>
+                    <p>
+                        Somos um estudio focado em <span class="highlight">transcender o comum</span>. Utilizando as mais recentes tecnologias de renderizacao e modelagem, e elaboracao de sites chamativos, transformamos conceitos abstratos em visuais de tirar o folego.
+                    </p>
                     
-                    <p>Seja para um comercial de alto impacto ou para a criacao de uma identidade visual unica, nossa missao e conectar a imaginacao humana a realidade digital, criando pontes entre o conceito e a execucao perfeita.</p>
+                    <p>
+                        Na <span class="highlight">DIMEN6</span>, damos vida a ideias atraves de <span class="highlight">Sites</span>, <span class="highlight">modelagem 3D</span>, e <span class="highlight">CGI</span>. Criando experiencias imersivas para publicidade e comunicacao visual.
+                    </p>
+                    
+                    <p>
+                        Seja para um comercial de alto impacto ou para a criacao de uma identidade visual unica, nossa missao e conectar a imaginacao humana a realidade digital, criando pontes entre o conceito e a execucao perfeita.
+                    </p>
                     
                     <div class="mission-vision">
                         <div class="mission">
@@ -84,13 +367,14 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </section>
 
     <section class="process-section">
         <div class="container">
-            <h2 class="section-title">Nosso <span>Processo</span> Criativo</h2>
+            <h2 class="section-title scroll-reveal">Nosso <span class="highlight-text">Processo</span> Criativo</h2>
             
             <div class="process-steps">
                 <div class="step scroll-reveal">
@@ -124,23 +408,25 @@
         </div>
     </section>
 
-<footer>
+    <footer>
         <div class="container">
             <div class="footer-logo">
-                <img src="logo.svg" alt="DIMEN6" class="footer-logo-svg" width="100" style="margin: 0 auto 20px;">
+                <svg class="footer-logo-svg" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" width="100">
+                    <text x="10" y="35" font-family="'Orbitron', sans-serif" font-size="20" fill="#00F3FF" opacity="0.7">DIMEN6</text>
+                </svg>
             </div>
-            <p class="footer-text">Transformando imaginação em realidade.</p>
+            <p class="footer-text">Transformando imaginacao em realidade.</p>
             
             <div class="social-links">
                 <a href="mailto:janaran52@gmail.com" title="Enviar Email" aria-label="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
                 
-                <a href="https://wa.me/9492691894" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
+                <a href="https://wa.me/5594992691894" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
 
-                <a href="https://t.me/@HESRON52" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Telegram">
+                <a href="https://t.me/HESRON52" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Telegram">
                     <i class="fab fa-telegram"></i>
                 </a>
 
@@ -155,5 +441,54 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                });
+            }
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.querySelector('i').classList.add('fa-bars');
+                    menuToggle.querySelector('i').classList.remove('fa-times');
+                });
+            });
+            
+            function scrollReveal() {
+                const elements = document.querySelectorAll('.scroll-reveal');
+                const windowHeight = window.innerHeight;
+                
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', scrollReveal);
+            window.addEventListener('load', scrollReveal);
+            
+            const currentPage = window.location.pathname.split('/').pop();
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
