@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#000000">
-    <title>Serviços - DIMEN6</title>
+    <title>Servicos - DIMEN6</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="all">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -16,58 +16,58 @@
             <a href="index.html" class="logo" aria-label="DIMEN6 Home">
                 <img src="logo.svg" alt="DIMEN6" class="logo-svg" loading="eager" width="120" height="40">
             </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" type="button">
                 <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
-            <nav aria-label="Navegação principal">
+            <nav aria-label="Navegacao principal">
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#about">Sobre</a></li>
-                    <li><a href="services.html" class="active">Serviços</a></li>
+                    <li><a href="services.html" class="active">Servicos</a></li>
                     <li><a href="index.html#contact">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="services" id="services" style="margin-top: 80px; min-height: 80vh;">
+    <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title scroll-reveal">Nossos <span>Serviços</span></h2>
+            <h2 class="section-title scroll-reveal">Nossos <span>Servicos</span></h2>
             <div class="services-grid">
                 <div class="service-card scroll-reveal" role="article">
                     <i class="fas fa-globe service-icon" aria-hidden="true"></i>
                     <h3>Sites</h3>
-                    <p>Criação de sites em geral para qualquer um acessar de qualquer lugar.</p>
+                    <p>Criacao de sites em geral para qualquer um acessar de qualquer lugar.</p>
                 </div>
                   <div class="service-card scroll-reveal" role="article">
                     <i class="fas fa-lightbulb service-icon" aria-hidden="true"></i>
                     <h3>Identidade Visual</h3>
-                    <p>Criamos identidades visuais memoráveis para que nem você e nem ninguém esqueça da sua marca.</p>
+                    <p>Criamos identidades visuais memoraveis para que nem voce e nem ninguem esqueca da sua marca.</p>
                 </div>
                  <div class="service-card scroll-reveal" role="article">
                     <i class="fas fa-palette service-icon" aria-hidden="true"></i>
-                    <h3>Artes Gráficas</h3>
+                    <h3>Artes Graficas</h3>
                     <p>Desenvolvimento artes e identidades visuais para redes sociais ou empresas.</p>
                 </div>
                 <div class="service-card scroll-reveal" role="article">
                     <i class="fas fa-cube service-icon" aria-hidden="true"></i>
                     <h3>Modelagem 3D</h3>
-                    <p>Criação de assets, personagens e ambientes detalhados com topologia otimizada para render ou real-time.</p>
+                    <p>Criacao de assets, personagens e ambientes detalhados com topologia otimizada para render ou real-time.</p>
                 </div>
                 <div class="service-card scroll-reveal" role="article">
                     <i class="fas fa-wand-magic-sparkles service-icon" aria-hidden="true"></i>
                     <h3>VFX</h3>
-                    <p>Efeitos visuais cinematográficos, simulações de partículas, fluidos e integração live-action.</p>
+                    <p>Efeitos visuais cinematograficos, simulacoes de particulas, fluidos e integracao live-action.</p>
                 </div>
                 <div class="service-card scroll-reveal" role="article">
                     <i class="fas fa-clapperboard service-icon" aria-hidden="true"></i>
                     <h3>CGI</h3>
-                    <p>Imagens ou vídeos realistas totalmente gerados por computador, sua campanha de publicidade nível Avatar</p>
+                    <p>Imagens ou videos realistas totalmente gerados por computador, sua campanha de publicidade nivel Avatar</p>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 60px;" class="scroll-reveal">
-                <a href="index.html#contact" class="cta-button">SOLICITAR ORÇAMENTO</a>
+            <div class="cta-container scroll-reveal">
+                <a href="index.html#contact" class="cta-button">SOLICITAR ORCAMENTO</a>
             </div>
         </div>
     </section>
@@ -75,10 +75,10 @@
     <footer>
         <div class="container">
             <div class="footer-logo">
-                <img src="logo.svg" alt="DIMEN6" class="footer-logo-svg" loading="lazy" width="100" height="33">
+                <img src="logo.svg" alt="DIMEN6" class="logo-svg" loading="lazy" width="100" height="33">
             </div>
-            <p class="footer-text" style="color:#888;">Transformando imaginação em realidade.</p>
-            <div class="copyright" style="color:#444; font-size:0.9rem;">
+            <p class="footer-text">Transformando Imaginacao em realidade.</p>
+            <div class="copyright">
                 &copy; 2025 DIMEN6. Todos os direitos reservados.
             </div>
         </div>
@@ -93,7 +93,6 @@
             });
         }
         
-        // Animação Scroll Reveal simples
         window.addEventListener('scroll', reveal);
         function reveal(){
             var reveals = document.querySelectorAll('.scroll-reveal');
@@ -106,7 +105,6 @@
                 }
             }
         }
-        // Ativar reveal ao carregar se já estiver visível
         reveal();
     </script>
 </body>
