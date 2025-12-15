@@ -125,3 +125,63 @@ if ('IntersectionObserver' in window) {
         imageObserver.observe(img);
     });
 }
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // ... (Mantenha seu código de validação de email aqui) ...
+
+    const contactForm = document.querySelector('.contact-form');
+    const overlay = document.getElementById('dimensional-overlay');
+    const loadingText = document.querySelector('.loading-text');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede o envio imediato
+
+            const email = document.querySelector('.email-input').value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Validação final antes da animação
+            if (!emailRegex.test(email)) {
+                // Se email inválido, foca no input e para
+                const validationDiv = document.querySelector('.email-validation');
+                if(validationDiv) {
+                    validationDiv.textContent = '✗ Email inválido';
+                    validationDiv.classList.add('invalid', 'show');
+                }
+                return;
+            }
+
+            // 1. Ativar Animação dos Cubos
+            overlay.classList.add('active');
+
+            // 2. Preparar dados para envio
+            const formData = new FormData(this);
+
+            // 3. Enviar via Fetch (AJAX)
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                // Simula um delay de 2.5s para apreciar a animação
+                setTimeout(() => {
+                    overlay.classList.remove('active');
+                    if (response.ok) {
+                        alert("MENSAGEM ENVIADA PARA O UNIVERSO DIMEN6!");
+                        contactForm.reset();
+                        // Reseta validações visuais
+                        document.querySelector('.email-input').classList.remove('valid');
+                        const vDiv = document.querySelector('.email-validation');
+                        if(vDiv) vDiv.classList.remove('show');
+                    } else {
+                        alert("Erro na transmissão. Tente novamente.");
+                    }
+                }, 2500); 
+            })
+            .catch(error => {
+                overlay.classList.remove('active');
+                alert("Falha na conexão dimensional.");
+            });
+        });
+    }
+});

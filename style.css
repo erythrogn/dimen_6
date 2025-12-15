@@ -64,6 +64,7 @@ header {
     z-index: 1000;
     padding: 15px 0;
     background: rgba(5, 10, 20, 0.95);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     transition: all 0.4s ease;
@@ -453,6 +454,7 @@ footer {
         width: 80%;
         max-width: 300px;
         background-color: rgba(5, 10, 20, 0.98);
+        -webkit-backdrop-filter: blur(15px);
         backdrop-filter: blur(15px);
         flex-direction: column;
         align-items: center;
@@ -723,4 +725,158 @@ footer {
 .contact-form textarea:focus::placeholder {
     opacity: 0.5;
 }
+}/* --- MELHORIA VISUAL DO FORMULÁRIO (Prettier Email) --- */
+.contact-form {
+    background: rgba(5, 10, 20, 0.6);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 243, 255, 0.1);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.contact-form input, 
+.contact-form textarea {
+    background: rgba(10, 21, 37, 0.8);
+    border: 1px solid rgba(0, 243, 255, 0.2); /* Borda sutil cyan */
+    border-left: 3px solid rgba(0, 243, 255, 0.2); /* Detalhe lateral */
+    color: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    background: rgba(0, 10, 20, 0.95);
+    border-color: var(--primary);
+    border-left-color: var(--secondary); /* Muda para roxo no foco */
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.15);
+    transform: translateX(5px); /* Leve movimento para a direita */
+}
+
+/* Ícone do Email */
+.input-with-icon {
+    position: relative;
+}
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary);
+    opacity: 0.7;
+    transition: 0.3s;
+    z-index: 2;
+}
+.email-input {
+    padding-left: 45px !important;
+}
+.email-input:focus + .input-icon {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px var(--primary));
+}
+
+/* --- ANIMAÇÃO DOS CUBOS DIMENSIONAIS --- */
+.dimensional-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 10, 20, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none; /* Não clica quando invisível */
+    transition: opacity 0.5s ease;
+}
+
+.dimensional-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.cube-scene {
+    perspective: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cube-wrapper {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+.cube-outer {
+    animation: rotateBox 4s infinite linear;
+}
+
+.cube-inner {
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%;
+    animation: rotateBox 4s infinite reverse linear; /* Gira ao contrário */
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    border: 1px solid;
+    box-shadow: 0 0 15px currentColor;
+    background: rgba(0,0,0,0.1);
+}
+
+/* Configuração das Faces do Cubo */
+.cube-outer .face { color: var(--primary); border-width: 2px; }
+.cube-inner .face { color: var(--secondary); border-width: 2px; }
+
+.front  { transform: rotateY(0deg) translateZ(50px); }
+.back   { transform: rotateY(180deg) translateZ(50px); }
+.right  { transform: rotateY(90deg) translateZ(50px); }
+.left   { transform: rotateY(-90deg) translateZ(50px); }
+.top    { transform: rotateX(90deg) translateZ(50px); }
+.bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+/* Ajuste para o cubo interno menor */
+.cube-inner .front  { transform: rotateY(0deg) translateZ(25px); }
+.cube-inner .back   { transform: rotateY(180deg) translateZ(25px); }
+.cube-inner .right  { transform: rotateY(90deg) translateZ(25px); }
+.cube-inner .left   { transform: rotateY(-90deg) translateZ(25px); }
+.cube-inner .top    { transform: rotateX(90deg) translateZ(25px); }
+.cube-inner .bottom { transform: rotateX(-90deg) translateZ(25px); }
+
+@keyframes rotateBox {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.loading-text {
+    margin-top: 50px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    color: white;
+    font-size: 1.2rem;
+    animation: pulseText 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseText {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; text-shadow: 0 0 10px var(--primary); }
 }
