@@ -8,6 +8,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS Específico para o Canvas de Partículas na página de contato */
+        #particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Fica no fundo absoluto */
+            pointer-events: none;
+        }
+
+        .contact {
+            position: relative; /* Necessário para posicionar o canvas */
+            background: radial-gradient(circle at center, #1a2a4a 0%, #050A14 100%); /* Fundo base */
+            overflow: hidden; /* Garante que partículas não criem barra de rolagem */
+        }
+
+        .container {
+            position: relative;
+            z-index: 2; /* Conteúdo acima do canvas */
+        }
+    </style>
 </head>
 <body>
 
@@ -16,21 +39,24 @@
             <a href="index.html" class="logo">
                 <img src="logo.svg" alt="DIMEN6" class="logo-svg" width="120">
             </a>
-            <button class="menu-toggle" id="menuToggle" title="Abrir menu de navegacao" aria-label="Abrir menu">
+            <button class="menu-toggle" id="menuToggle" title="Abrir menu de navegação" aria-label="Abrir menu">
                 <i class="fas fa-bars"></i>
             </button>
             <nav>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="services.html">Servicos</a></li>
-                    <li><a href="contato.html" class="active">Contato</a></li>
+                    <li><a href="services.html">Serviços</a></li>
+                    <li><a href="contato.html" class="active" style="color:var(--primary)">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="contact" id="contact">
+    <section class="contact" id="contact" style="padding-top: 140px; min-height: 100vh; display: flex; align-items: center;">
+        
+        <canvas id="particles-canvas"></canvas>
+
         <div class="container">
             <h2 class="section-title scroll-reveal">Inicie o <span>Projeto</span></h2>
             <div class="contact-wrapper scroll-reveal">
@@ -75,7 +101,7 @@
             <div class="footer-logo">
                 <img src="logo.svg" alt="DIMEN6" class="footer-logo-svg" width="100">
             </div>
-            <p class="footer-text">Transformando imaginacao em realidade.</p>
+            <p class="footer-text">Transformando imaginação em realidade.</p>
             
             <div class="social-links">
                 <a href="mailto:janaran52@gmail.com" title="Enviar Email" aria-label="Email">
@@ -121,50 +147,53 @@
                     <div class="face bottom"></div>
                 </div>
             </div>
-            <p class="loading-text">TRANSMITINDO DADOS DIMEN6...</p>
+            <p class="loading-text">TRANSMITINDO DADOS <span style="color:var(--primary)">DIMEN6</span>...</p>
         </div>
     </div>
 
     <script src="script.js"></script>
-     <script>
+    
+    <script>
         (function() {
             const canvas = document.getElementById('particles-canvas');
+            // Só roda se o canvas existir na página
+            if (!canvas) return;
+
             const ctx = canvas.getContext('2d');
             let width, height;
             let particles = [];
 
-            const particleCount = 100; // Quantidade de pontos
-            const connectionDistance = 200; // Distância para conectar linhas
-            const mouseDistance = 200; // Raio de interação do mouse
+            // Aumentei um pouco a quantidade para preencher melhor a tela de contato
+            const particleCount = 80; 
+            const connectionDistance = 180;
+            const mouseDistance = 250;
 
             let mouse = { x: null, y: null };
 
-            // Ajusta tamanho do canvas
             function resize() {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight; // Pega a altura da tela toda ou do pai
+                // Pega o tamanho da section pai para não vazar
+                const parent = canvas.parentElement;
+                width = canvas.width = parent.offsetWidth;
+                height = canvas.height = parent.offsetHeight;
             }
 
-            // Classe Partícula
             class Particle {
                 constructor() {
                     this.x = Math.random() * width;
                     this.y = Math.random() * height;
-                    this.vx = (Math.random() - 0.5) * 1.5; // Velocidade X
-                    this.vy = (Math.random() - 0.5) * 1.5; // Velocidade Y
+                    this.vx = (Math.random() - 0.5) * 1.0; // Velocidade suave
+                    this.vy = (Math.random() - 0.5) * 1.0;
                     this.size = Math.random() * 2 + 1;
-                    this.color = '#00F3FF'; // Cor Cyan da sua marca
+                    this.color = '#00F3FF'; 
                 }
 
                 update() {
                     this.x += this.vx;
                     this.y += this.vy;
 
-                 
                     if (this.x < 0 || this.x > width) this.vx *= -1;
                     if (this.y < 0 || this.y > height) this.vy *= -1;
 
-                    // Interação com mouse
                     if (mouse.x != null) {
                         let dx = mouse.x - this.x;
                         let dy = mouse.y - this.y;
@@ -173,8 +202,8 @@
                             const forceDirectionX = dx / distance;
                             const forceDirectionY = dy / distance;
                             const force = (mouseDistance - distance) / mouseDistance;
-                            const directionX = forceDirectionX * force * 3; 
-                            const directionY = forceDirectionY * force * 3;
+                            const directionX = forceDirectionX * force * 2; 
+                            const directionY = forceDirectionY * force * 2;
                         
                             this.x -= directionX;
                             this.y -= directionY;
@@ -190,7 +219,6 @@
                 }
             }
 
-            // Inicializar
             function init() {
                 particles = [];
                 resize();
@@ -199,7 +227,6 @@
                 }
             }
 
-            // Animar
             function animate() {
                 ctx.clearRect(0, 0, width, height);
                 
@@ -207,7 +234,6 @@
                     particles[i].update();
                     particles[i].draw();
 
-                    // Desenhar conexões
                     for (let j = i; j < particles.length; j++) {
                         let dx = particles[i].x - particles[j].x;
                         let dy = particles[i].y - particles[j].y;
@@ -215,8 +241,8 @@
 
                         if (distance < connectionDistance) {
                             ctx.beginPath();
-                            ctx.strokeStyle = `rgba(0, 243, 255, ${1 - distance / connectionDistance})`; // Transparência baseada na distância
-                            ctx.lineWidth = 1;
+                            ctx.strokeStyle = `rgba(0, 243, 255, ${1 - distance / connectionDistance})`;
+                            ctx.lineWidth = 0.5;
                             ctx.moveTo(particles[i].x, particles[i].y);
                             ctx.lineTo(particles[j].x, particles[j].y);
                             ctx.stroke();
@@ -226,15 +252,13 @@
                 requestAnimationFrame(animate);
             }
 
-            // Eventos
             window.addEventListener('resize', () => {
                 resize();
-                init(); // Reinicia para não deformar
+                init();
             });
 
+            // Ajuste para rastrear o mouse relativo ao canvas na section de contato
             window.addEventListener('mousemove', (e) => {
-                // Ajuste para pegar a posição relativa ao canvas se ele não ocupar a tela toda
-                // Como está na hero (fixed/absolute), pageX/Y geralmente funciona bem
                 const rect = canvas.getBoundingClientRect();
                 mouse.x = e.clientX - rect.left;
                 mouse.y = e.clientY - rect.top;
