@@ -3,120 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#050A14">
     <title>DIMEN6</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
     <style>
-        * {
-            -webkit-tap-highlight-color: transparent;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        /* CSS Específico para o Canvas de Partículas */
+        #particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Fica atrás do conteúdo */
+            pointer-events: none; /* Deixa clicar nos botões através dele */
         }
         
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            touch-action: manipulation;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .menu-toggle {
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: white;
-            z-index: 1002;
-        }
-        
-        .nav-links {
-            transition: all 0.3s ease;
-        }
-        
-        @media screen and (max-width: 768px) {
-            input, textarea {
-                font-size: 16px !important;
-            }
-        }
-        
-        button, .cta-button, a.cta-button {
-            min-height: 44px;
-            min-width: 44px;
-        }
-        
-        .nav-links li a {
-            padding: 12px 0;
-            display: block;
+        .hero {
+            position: relative;
+            overflow: hidden; /* Garante que nada saia da tela */
+            /* Removemos a imagem de fundo fixa para dar destaque às partículas, 
+               ou usamos um gradiente escuro de fundo */
+            background: radial-gradient(circle at center, #1a2a4a 0%, #000000 100%);
         }
 
-        .logo-fallback {
-            font-family: 'Orbitron';
-            font-size: 1.5rem;
-            color: white;
+        .hero-overlay {
+            /* Ajuste o overlay para ser mais sutil se quiser ver melhor as partículas */
+            background: linear-gradient(to bottom, rgba(5, 10, 20, 0.3), var(--bg-dark));
+            z-index: 2;
         }
 
-        .logo-fallback.hidden {
-            display: none;
-        }
-
-        .hero-center {
-            text-align: center;
-        }
-
-        .hero-logo {
-            margin: 0 auto;
-        }
-
-        .footer-logo img {
-            margin: 0 auto 20px;
-            display: block;
-        }
-
-        .loading-highlight {
-            color: var(--primary);
+        .hero-content {
+            position: relative;
+            z-index: 3; /* Garante que o texto fique na frente de tudo */
         }
     </style>
 </head>
 <body>
+
     <header id="header">
         <div class="container nav-container">
-            <a href="#home" class="logo" aria-label="DIMEN6 Home">
-                <img src="logo.svg" alt="DIMEN6" class="logo-svg" loading="eager" width="120" height="40" onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
-                <span class="logo-fallback hidden">DIMEN6</span>
+            <a href="index.html" class="logo">
+                <img src="logo.svg" alt="DIMEN6" class="logo-svg" width="120">
             </a>
-            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">
-                <i class="fas fa-bars" aria-hidden="true"></i>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
             </button>
-            <nav aria-label="Navegação principal">
+            <nav>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="index.html" class="active" style="color:var(--primary)">Home</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="services.html">Serviços</a></li>
-                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="contact.html">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <section class="hero" id="home">
+        <canvas id="particles-canvas"></canvas>
+        
         <div class="hero-overlay"></div>
-        <div class="container hero-content scroll-reveal hero-center">
+        <div class="container hero-content scroll-reveal">
             <div class="hero-logo">
-                <img src="logo.svg" alt="DIMEN6 Logo" class="hero-logo-svg" loading="eager" width="200" height="67">
+                <img src="logo.svg" alt="DIMEN6 Logo" class="hero-logo-svg" width="200">
             </div>
             <h1>Dimensões de uma <span class="highlight-text">Imaginação</span> em Realidade</h1>
-            <p>Na DIMEN6, damos vida a ideias através de Sites, modelagem 3D, e CGI. Criando experiências imersivas para publicidade.</p>
-            <a href="sobre.html" class="cta-button" role="button">EXPLORAR O UNIVERSO</a>
+            <p>Na DIMEN6, damos vida a ideias através de Sites, modelagem 3D e CGI. Criando experiências imersivas para publicidade.</p>
+            <a href="sobre.html" class="cta-button">EXPLORAR O UNIVERSO</a>
         </div>
     </section>
 
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Sobre a <span>DIMEN6</span></h2>
+            <div class="about-content">
+                <div class="about-text scroll-reveal">
+                    <p>Somos um estúdio focado em <span class="highlight">transcender o comum</span>. Utilizando as mais recentes tecnologias de renderização e modelagem, elaboração de sites chamativos, transformamos conceitos abstratos em visuais de tirar o fôlego.</p>
+                    <p>Seja para um comercial de alto impacto ou para a criação de publicidade, nossa missão é conectar a imaginação humana à realidade digital.</p>
+                    <ul class="tech-list">
+                        <li><i class="fas fa-code"></i> VS Code</li>
+                        <li><i class="fas fa-cube"></i> Blender</li>
+                        <li><i class="fas fa-palette"></i> Adobe</li>
+                        <li><i class="fas fa-video"></i> After Effects</li>
+                    </ul>
+                </div>
+                <div class="about-image scroll-reveal">
+                    <img src="3.jpg" alt="Ambiente 3D Futurista" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
@@ -124,164 +102,141 @@
                 <img src="logo.svg" alt="DIMEN6" class="footer-logo-svg" width="100">
             </div>
             <p class="footer-text">Transformando imaginação em realidade.</p>
-            
             <div class="social-links">
-                <a href="mailto:janaran52@gmail.com" title="Enviar Email" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://wa.me/9492691894" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://t.me/@HESRON52" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Telegram">
-                    <i class="fab fa-telegram"></i>
-                </a>
-                <a href="https://instagram.com/dimen_6_" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
+                <a href="mailto:janaran52@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://wa.me/5594992691894" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/HESRON52" target="_blank" rel="noopener noreferrer" title="Telegram"><i class="fab fa-telegram"></i></a>
+                <a href="https://instagram.com/dimen_6_" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
-            
             <div class="copyright">
                 &copy; 2025 DIMEN6. Todos os direitos reservados.
             </div>
         </div>
     </footer>
 
-    <div id="dimensional-overlay" class="dimensional-overlay">
-        <div class="cube-scene">
-            <div class="cube-wrapper">
-                <div class="cube cube-outer">
-                    <div class="face front"></div>
-                    <div class="face back"></div>
-                    <div class="face right"></div>
-                    <div class="face left"></div>
-                    <div class="face top"></div>
-                    <div class="face bottom"></div>
-                </div>
-                <div class="cube cube-inner">
-                    <div class="face front"></div>
-                    <div class="face back"></div>
-                    <div class="face right"></div>
-                    <div class="face left"></div>
-                    <div class="face top"></div>
-                    <div class="face bottom"></div>
-                </div>
-            </div>
-            <p class="loading-text">ENVIANDO DADOS PARA A <span class="loading-highlight">DIMEN6</span>...</p>
-        </div>
-    </div>
-
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
+    
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const emailInput = document.querySelector('.email-input');
-            const validationDiv = document.querySelector('.email-validation');
-            
-            if (emailInput) {
-                emailInput.addEventListener('input', function() {
-                    validateEmail(this.value);
-                });
-                
-                emailInput.addEventListener('blur', function() {
-                    if (this.value) validateEmail(this.value);
-                });
-                
-                function validateEmail(email) {
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    
-                    if (!email) {
-                        emailInput.classList.remove('valid', 'invalid');
-                        validationDiv.classList.remove('show', 'valid', 'invalid');
-                        return;
-                    }
-                    
-                    if (emailRegex.test(email)) {
-                        emailInput.classList.remove('invalid');
-                        emailInput.classList.add('valid');
-                        validationDiv.textContent = '✓ Email válido';
-                        validationDiv.classList.remove('invalid');
-                        validationDiv.classList.add('valid', 'show');
-                    } else {
-                        emailInput.classList.remove('valid');
-                        emailInput.classList.add('invalid');
-                        validationDiv.textContent = '✗ Formato de email inválido';
-                        validationDiv.classList.remove('valid');
-                        validationDiv.classList.add('invalid', 'show');
+        (function() {
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+
+            const particleCount = 100; // Quantidade de pontos
+            const connectionDistance = 200; // Distância para conectar linhas
+            const mouseDistance = 200; // Raio de interação do mouse
+
+            let mouse = { x: null, y: null };
+
+            // Ajusta tamanho do canvas
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight; // Pega a altura da tela toda ou do pai
+            }
+
+            // Classe Partícula
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 1.5; // Velocidade X
+                    this.vy = (Math.random() - 0.5) * 1.5; // Velocidade Y
+                    this.size = Math.random() * 2 + 1;
+                    this.color = '#00F3FF'; // Cor Cyan da sua marca
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                 
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                    // Interação com mouse
+                    if (mouse.x != null) {
+                        let dx = mouse.x - this.x;
+                        let dy = mouse.y - this.y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < mouseDistance) {
+                            const forceDirectionX = dx / distance;
+                            const forceDirectionY = dy / distance;
+                            const force = (mouseDistance - distance) / mouseDistance;
+                            const directionX = forceDirectionX * force * 3; 
+                            const directionY = forceDirectionY * force * 3;
+                        
+                            this.x -= directionX;
+                            this.y -= directionY;
+                        }
                     }
                 }
-            }
-            
-            const contactForm = document.querySelector('.contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    const email = emailInput.value;
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    
-                    if (!emailRegex.test(email)) {
-                        e.preventDefault();
-                        emailInput.focus();
-                        emailInput.classList.add('invalid');
-                        validationDiv.textContent = '✗ Por favor, insira um email válido antes de enviar';
-                        validationDiv.classList.add('invalid', 'show');
-                    }
-                });
-            }
-        });
 
-        (function() {
-            'use strict';
-            
-            const menuToggle = document.getElementById('menuToggle');
-            const navLinks = document.getElementById('navLinks');
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-                    menuToggle.setAttribute('aria-expanded', !isExpanded);
-                    navLinks.classList.toggle('active');
-                });
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+            }
+
+            // Inicializar
+            function init() {
+                particles = [];
+                resize();
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            // Animar
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
                 
-                document.addEventListener('click', function(e) {
-                    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                        menuToggle.setAttribute('aria-expanded', 'false');
-                        navLinks.classList.remove('active');
-                    }
-                });
-                
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        if (window.innerWidth <= 768) {
-                            menuToggle.setAttribute('aria-expanded', 'false');
-                            navLinks.classList.remove('active');
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+
+                    // Desenhar conexões
+                    for (let j = i; j < particles.length; j++) {
+                        let dx = particles[i].x - particles[j].x;
+                        let dy = particles[i].y - particles[j].y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < connectionDistance) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(0, 243, 255, ${1 - distance / connectionDistance})`; // Transparência baseada na distância
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
                         }
-                    });
-                });
-            }
-            
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href === '#') return;
-                    
-                    e.preventDefault();
-                    const targetElement = document.querySelector(href);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
                     }
-                });
-            });
-            
-            function setVH() {
-                let vh = window.innerHeight * 0.01;
-                document.documentElement.style.setProperty('--vh', vh + 'px');
+                }
+                requestAnimationFrame(animate);
             }
-            
-            setVH();
-            window.addEventListener('resize', setVH);
-            window.addEventListener('orientationchange', setVH);
+
+            // Eventos
+            window.addEventListener('resize', () => {
+                resize();
+                init(); // Reinicia para não deformar
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                // Ajuste para pegar a posição relativa ao canvas se ele não ocupar a tela toda
+                // Como está na hero (fixed/absolute), pageX/Y geralmente funciona bem
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+
+            window.addEventListener('mouseout', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            init();
+            animate();
         })();
     </script>
 </body>
