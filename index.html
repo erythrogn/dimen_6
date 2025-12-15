@@ -7,10 +7,9 @@
     <title>DIMEN6</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="all">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+    <link rel="stylesheet" href="style.css">
     <style>
         * {
             -webkit-tap-highlight-color: transparent;
@@ -42,17 +41,13 @@
             transition: all 0.3s ease;
         }
         
-        /* Prevent zoom on input focus for mobile */
         @media screen and (max-width: 768px) {
             input, textarea {
                 font-size: 16px !important;
             }
         }
         
-        /* Touch-friendly button sizes */
-        button, 
-        .cta-button,
-        a.cta-button {
+        button, .cta-button, a.cta-button {
             min-height: 44px;
             min-width: 44px;
         }
@@ -63,63 +58,6 @@
         }
     </style>
 </head>
- </body>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const emailInput = document.querySelector('.email-input');
-    const validationDiv = document.querySelector('.email-validation');
-    
-    if (emailInput) {
-        emailInput.addEventListener('input', function() {
-            validateEmail(this.value);
-        });
-        
-        emailInput.addEventListener('blur', function() {
-            if (this.value) validateEmail(this.value);
-        });
-        
-        function validateEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            
-            if (!email) {
-                emailInput.classList.remove('valid', 'invalid');
-                validationDiv.classList.remove('show', 'valid', 'invalid');
-                return;
-            }
-            
-            if (emailRegex.test(email)) {
-                emailInput.classList.remove('invalid');
-                emailInput.classList.add('valid');
-                validationDiv.textContent = '✓ Email válido';
-                validationDiv.classList.remove('invalid');
-                validationDiv.classList.add('valid', 'show');
-            } else {
-                emailInput.classList.remove('valid');
-                emailInput.classList.add('invalid');
-                validationDiv.textContent = '✗ Formato de email inválido';
-                validationDiv.classList.remove('valid');
-                validationDiv.classList.add('invalid', 'show');
-            }
-        }
-    }
-    
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            const email = emailInput.value;
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            
-            if (!emailRegex.test(email)) {
-                e.preventDefault();
-                emailInput.focus();
-                emailInput.classList.add('invalid');
-                validationDiv.textContent = '✗ Por favor, insira um email válido antes de enviar';
-                validationDiv.classList.add('invalid', 'show');
-            }
-        });
-    }
-});
-</script>
 <body>
     <header id="header">
         <div class="container nav-container">
@@ -127,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="logo.svg" alt="DIMEN6" class="logo-svg" loading="eager" width="120" height="40" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                 <span style="display:none; font-family:'Orbitron'; font-size:1.5rem; color:white;">DIMEN6</span>
             </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">
                 <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
             <nav aria-label="Navegação principal">
@@ -161,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p>Somos um estudio focado em <span class="highlight">transcender o comum</span>. Utilizando as mais recentes tecnologias de renderizacao e modelagem, elaboração de sites chamativos, transformamos conceitos abstratos em visuais de tirar o folego.</p>
                     <p>Seja para um comercial de alto impacto ou para a criacao de publicidade, nossa missão e conectar a imaginação humana a realidade digital.</p>
                     <ul class="tech-list" role="list">
-                         <li role="listitem"><i class="fas fa-code" aria-hidden="true"></i> VS Code</li>
+                        <li role="listitem"><i class="fas fa-code" aria-hidden="true"></i> VS Code</li>
                         <li role="listitem"><i class="fas fa-cube" aria-hidden="true"></i> Blender</li>
                         <li role="listitem"><i class="fas fa-palette" aria-hidden="true"></i> Adobe</li>
                         <li role="listitem"><i class="fas fa-video" aria-hidden="true"></i> After Effects</li>
@@ -174,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </section>
 
-<footer>
+    <footer>
         <div class="container">
             <div class="footer-logo">
                 <img src="logo.svg" alt="DIMEN6" class="footer-logo-svg" width="100" style="margin: 0 auto 20px;">
@@ -185,15 +123,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 <a href="mailto:janaran52@gmail.com" title="Enviar Email" aria-label="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
-                
                 <a href="https://wa.me/9492691894" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-
-                <a href="https://t.me/@Hesron52" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Telegram">
+                <a href="https://t.me/@HESRON52" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Telegram">
                     <i class="fab fa-telegram"></i>
                 </a>
-
                 <a href="https://instagram.com/dimen_6_" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
@@ -205,13 +140,90 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </footer>
 
+    <div id="dimensional-overlay" class="dimensional-overlay">
+        <div class="cube-scene">
+            <div class="cube-wrapper">
+                <div class="cube cube-outer">
+                    <div class="face front"></div>
+                    <div class="face back"></div>
+                    <div class="face right"></div>
+                    <div class="face left"></div>
+                    <div class="face top"></div>
+                    <div class="face bottom"></div>
+                </div>
+                <div class="cube cube-inner">
+                    <div class="face front"></div>
+                    <div class="face back"></div>
+                    <div class="face right"></div>
+                    <div class="face left"></div>
+                    <div class="face top"></div>
+                    <div class="face bottom"></div>
+                </div>
+            </div>
+            <p class="loading-text">ENVIANDO DADOS PARA A <span style="color:var(--primary)">DIMEN6</span>...</p>
+        </div>
+    </div>
 
+    <script src="script.js" defer></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailInput = document.querySelector('.email-input');
+            const validationDiv = document.querySelector('.email-validation');
+            
+            if (emailInput) {
+                emailInput.addEventListener('input', function() {
+                    validateEmail(this.value);
+                });
+                
+                emailInput.addEventListener('blur', function() {
+                    if (this.value) validateEmail(this.value);
+                });
+                
+                function validateEmail(email) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    
+                    if (!email) {
+                        emailInput.classList.remove('valid', 'invalid');
+                        validationDiv.classList.remove('show', 'valid', 'invalid');
+                        return;
+                    }
+                    
+                    if (emailRegex.test(email)) {
+                        emailInput.classList.remove('invalid');
+                        emailInput.classList.add('valid');
+                        validationDiv.textContent = '✓ Email válido';
+                        validationDiv.classList.remove('invalid');
+                        validationDiv.classList.add('valid', 'show');
+                    } else {
+                        emailInput.classList.remove('valid');
+                        emailInput.classList.add('invalid');
+                        validationDiv.textContent = '✗ Formato de email inválido';
+                        validationDiv.classList.remove('valid');
+                        validationDiv.classList.add('invalid', 'show');
+                    }
+                }
+            }
+            
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    const email = emailInput.value;
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    
+                    if (!emailRegex.test(email)) {
+                        e.preventDefault();
+                        emailInput.focus();
+                        emailInput.classList.add('invalid');
+                        validationDiv.textContent = '✗ Por favor, insira um email válido antes de enviar';
+                        validationDiv.classList.add('invalid', 'show');
+                    }
+                });
+            }
+        });
 
         (function() {
             'use strict';
             
-            // Menu toggle for mobile
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
             if (menuToggle && navLinks) {
@@ -223,7 +235,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     navLinks.classList.toggle('active');
                 });
                 
-                // Close menu when clicking outside
                 document.addEventListener('click', function(e) {
                     if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
                         menuToggle.setAttribute('aria-expanded', 'false');
@@ -231,7 +242,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
                 
-                // Close menu on link click for mobile
                 navLinks.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', function() {
                         if (window.innerWidth <= 768) {
@@ -242,7 +252,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
             
-            // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
@@ -259,17 +268,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
             
-            // Load non-critical CSS asynchronously
-            function loadCSS(href) {
-                const link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = href;
-                link.media = 'print';
-                link.onload = function() { this.media = 'all'; };
-                document.head.appendChild(link);
-            }
-            
-            // Set viewport height for mobile browsers
             function setVH() {
                 let vh = window.innerHeight * 0.01;
                 document.documentElement.style.setProperty('--vh', vh + 'px');
@@ -278,32 +276,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setVH();
             window.addEventListener('resize', setVH);
             window.addEventListener('orientationchange', setVH);
-            
         })();
     </script>
-    <div id="dimensional-overlay" class="dimensional-overlay">
-    <div class="cube-scene">
-        <div class="cube-wrapper">
-            <div class="cube cube-outer">
-                <div class="face front"></div>
-                <div class="face back"></div>
-                <div class="face right"></div>
-                <div class="face left"></div>
-                <div class="face top"></div>
-                <div class="face bottom"></div>
-            </div>
-            <div class="cube cube-inner">
-                <div class="face front"></div>
-                <div class="face back"></div>
-                <div class="face right"></div>
-                <div class="face left"></div>
-                <div class="face top"></div>
-                <div class="face bottom"></div>
-            </div>
-        </div>
-        <p class="loading-text">ENVIANDO DADOS PARA A <span style="color:var(--primary)">DIMEN6</span>...</p>
-    </div>
-</div>
-    <script src="script.js" defer></script>
 </body>
 </html>
