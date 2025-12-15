@@ -9,34 +9,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* CSS Específico para o Canvas de Partículas */
         #particles-canvas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1; /* Fica atrás do conteúdo */
-            pointer-events: none; /* Deixa clicar nos botões através dele */
+            z-index: 1;
+            pointer-events: none;
         }
         
         .hero {
             position: relative;
-            overflow: hidden; /* Garante que nada saia da tela */
-            /* Removemos a imagem de fundo fixa para dar destaque às partículas, 
-               ou usamos um gradiente escuro de fundo */
+            overflow: hidden;
             background: radial-gradient(circle at center, #1a2a4a 0%, #000000 100%);
         }
 
         .hero-overlay {
-            /* Ajuste o overlay para ser mais sutil se quiser ver melhor as partículas */
             background: linear-gradient(to bottom, rgba(5, 10, 20, 0.3), var(--bg-dark));
             z-index: 2;
         }
 
         .hero-content {
             position: relative;
-            z-index: 3; /* Garante que o texto fique na frente de tudo */
+            z-index: 3;
         }
     </style>
 </head>
@@ -47,7 +43,7 @@
             <a href="index.html" class="logo">
                 <img src="logo.svg" alt="DIMEN6" class="logo-svg" width="120">
             </a>
-            <button class="menu-toggle" id="menuToggle">
+            <button class="menu-toggle" id="menuToggle" title="Menu de navegação">
                 <i class="fas fa-bars"></i>
             </button>
             <nav>
