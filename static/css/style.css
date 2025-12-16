@@ -162,10 +162,23 @@ header.scrolled {
     height: calc(var(--vh, 1vh) * 100); 
     display: flex;
     align-items: center;
-    /* Caminho corrigido para imagem */
-    background: url('../images/bg-contato.jpg') no-repeat center center/cover;
+    /* REMOVIDO: background: url(...) */
+    background: radial-gradient(circle at center, #1a2a4a 0%, #050A14 100%);
     position: relative;
     padding-top: var(--header-height);
+}
+
+/* Hero da página Sobre */
+.about-hero {
+    min-height: 60vh;
+    padding: 120px 0 80px;
+    /* REMOVIDO: background: url(...) */
+    background: radial-gradient(circle at center, #1a2a4a 0%, #050A14 100%);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-overlay {
@@ -661,7 +674,20 @@ header.scrolled {
 }
 
 .email-input {
+    width: 100%;
+    box-sizing: border-box;
     padding-left: 45px !important;
+    padding-right: 15px;
+    height: 50px;
+    max-width: 100%;
+}
+
+@media (max-width: 480px) {
+    .contact-wrapper {
+        padding: 20px;
+        width: 90%;
+        margin: 0 auto;
+    }
 }
 
 .email-input:focus + .input-icon {
