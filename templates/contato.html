@@ -1,168 +1,49 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#050A14">
-    <title>Contato - DIMEN6</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+{% extends "base.html" %}
+
+{% block title %}Contato{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contato.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="contact" id="contact">
+    <canvas id="particles-canvas"></canvas>
     
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="contato.css">
-    
-    <style>
-        /* Base e Reset */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        :root {
-            --primary: #00F3FF;
-            --bg-dark: #050A14;
-            --text-white: #ffffff;
-            --font-heading: 'Orbitron', sans-serif;
-            --font-body: 'Rajdhani', sans-serif;
-        }
-        html, body {
-            width: 100%; overflow-x: hidden;
-            background-color: var(--bg-dark);
-            font-family: var(--font-body);
-            color: var(--text-white);
-        }
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Header Fixo */
-        header {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(5, 10, 20, 0.95);
-            backdrop-filter: blur(10px); z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.05); padding: 15px 0;
-        }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .logo-svg { height: 40px; width: auto; }
-        
-        /* Menu Mobile Styles */
-        .nav-links { list-style: none; display: flex; gap: 30px; }
-        .nav-links a { color: var(--text-white); text-decoration: none; font-family: var(--font-heading); font-size: 0.9rem; letter-spacing: 1px; transition: color 0.3s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-        .menu-toggle { display: none; background: none; border: none; color: var(--text-white); font-size: 1.5rem; cursor: pointer; }
-
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; z-index: 1002; }
-            .nav-links {
-                position: fixed; top: 0; right: -100%; width: 75%; height: 100vh;
-                background: rgba(5, 10, 20, 0.98); flex-direction: column;
-                justify-content: center; align-items: center; transition: right 0.4s ease;
-                z-index: 1001; border-left: 1px solid rgba(0, 243, 255, 0.1);
-            }
-            .nav-links.active { right: 0; }
-            .nav-links li { margin: 20px 0; }
-            .nav-links a { font-size: 1.3rem; }
-        }
-
-        /* Seção Contato */
-        .contact {
-            position: relative; background: radial-gradient(circle at center, #1a2a4a 0%, #050A14 100%);
-            overflow: hidden; padding: 140px 0 80px; min-height: 100vh;
-            display: flex; align-items: center; justify-content: center;
-        }
-        #particles-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-        .contact .container { position: relative; z-index: 2; width: 100%; }
-        
-        /* Loading Overlay */
-        .dimensional-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9); z-index: 9999;
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.5s;
-        }
-        .dimensional-overlay.active { opacity: 1; pointer-events: all; }
-        .loading-text { color: var(--primary); font-family: var(--font-heading); letter-spacing: 2px; }
-        
-        /* Animações */
-        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
-    </style>
-</head>
-<body>
-
-    <header id="header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="logo.svg" alt="DIMEN6" class="logo-svg" width="120" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                <span style="display:none; font-family:'Orbitron'; font-size:1.5rem; color:white;">DIMEN6</span>
-            </a>
-            <button class="menu-toggle" id="menuToggle" title="Abrir menu" aria-label="Abrir menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="services.html">Serviços</a></li>
-                    <li><a href="contato.html" class="active" style="color:var(--primary)">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="contact" id="contact">
-        <canvas id="particles-canvas"></canvas>
-        
-        <div class="container">
-            <h2 class="section-title scroll-reveal" style="text-align: center; font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 40px;">Inicie o <span style="color: var(--primary)">Projeto</span></h2>
+    <div class="container">
+        <h2 class="section-title scroll-reveal">Inicie o <span>Projeto</span></h2>
+        <div class="contact-wrapper scroll-reveal">
             
-            <div class="contact-wrapper scroll-reveal">
-                <form class="contact-form" action="https://formsubmit.co/janaran52@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="Novo contato via Site DIMEN6!">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    
-                    <div class="form-group">
-                        <input type="text" name="nome" placeholder="Seu Nome" required>
+            <form class="contact-form" action="https://formsubmit.co/janaran52@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Novo contato via Site DIMEN6!">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="form-group">
+                    <input type="text" name="nome" placeholder="Seu Nome" required>
+                </div>
+                
+                <div class="form-group email-group">
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" name="email" placeholder="seu@email.com" required class="email-input">
                     </div>
-                    
-                    <div class="form-group email-group">
-                        <div class="input-with-icon">
-                            <i class="fas fa-envelope input-icon"></i>
-                            <input type="email" name="email" placeholder="seu@email.com" required class="email-input">
-                        </div>
-                        <small class="email-hint">Usaremos apenas para responder sua mensagem</small>
-                        <div class="email-validation"></div> </div>
-                    
-                    <div class="form-group">
-                        <textarea name="mensagem" rows="5" placeholder="Descreva sua ideia ou projeto..." required></textarea>
-                    </div>
-                    
-                    <div class="form-footer">
-                        <button type="submit" class="cta-button">
-                            <span>ENVIAR MENSAGEM</span>
-                            <i class="fas fa-paper-plane button-icon"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+                    <small class="email-hint">Usaremos apenas para responder sua mensagem</small>
+                    <div class="email-validation"></div>
+                </div>
+                
+                <div class="form-group">
+                    <textarea name="mensagem" rows="5" placeholder="Descreva sua ideia ou projeto..." required></textarea>
+                </div>
+                
+                <div class="form-footer">
+                    <button type="submit" class="cta-button">
+                        <span>ENVIAR MENSAGEM</span>
+                        <i class="fas fa-paper-plane button-icon"></i>
+                    </button>
+                </div>
+            </form>
 
-    <footer>
-        <div class="container">
-            <div class="footer-logo">
-                <img src="logo.svg" alt="DIMEN6" class="footer-logo-svg" width="100" style="margin: 0 auto 20px;">
-            </div>
-            <p class="footer-text">Transformando imaginação em realidade.</p>
-            <div class="social-links">
-                <a href="mailto:janaran52@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="https://wa.me/5594992691894" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://t.me/HESRON52" target="_blank"><i class="fab fa-telegram"></i></a>
-                <a href="https://instagram.com/dimen_6_" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="copyright">&copy; 2025 DIMEN6. Todos os direitos reservados.</div>
         </div>
-    </footer>
-
-    <div id="dimensional-overlay" class="dimensional-overlay">
-        <p class="loading-text">ENVIANDO DADOS...</p>
     </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+</section>
+{% endblock %}

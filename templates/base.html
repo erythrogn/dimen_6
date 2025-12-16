@@ -1,16 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#050A14">
+    
+    <title>{% block title %}DIMEN6{% endblock %} - DIMEN6</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>{{ title }} - DIMEN6</title>
+    
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
-    
-    <header>...</header>
 
-    {% block content %}{% endblock %}
+    <header id="header">
+        <div class="container nav-container">
+            <a href="{{ url_for('index') }}" class="logo">
+                <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="DIMEN6" class="logo-svg" width="120">
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="{{ url_for('index') }}" class="{{ 'active' if request.endpoint == 'index' else '' }}">Home</a></li>
+                    <li><a href="{{ url_for('sobre') }}" class="{{ 'active' if request.endpoint == 'sobre' else '' }}">Sobre</a></li>
+                    <li><a href="{{ url_for('servicos') }}" class="{{ 'active' if request.endpoint == 'servicos' else '' }}">Serviços</a></li>
+                    <li><a href="{{ url_for('contato') }}" class="{{ 'active' if request.endpoint == 'contato' else '' }}">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <footer>...</footer>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="DIMEN6" class="footer-logo-svg" width="100" style="margin: 0 auto 20px;">
+            </div>
+            <p class="footer-text">Transformando imaginação em realidade.</p>
+            <div class="social-links">
+                <a href="mailto:janaran52@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://wa.me/5594992691894" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/HESRON52" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="https://instagram.com/dimen_6_" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="copyright">&copy; 2025 DIMEN6. Todos os direitos reservados.</div>
+        </div>
+    </footer>
+
+    <div id="dimensional-overlay" class="dimensional-overlay">
+        <p class="loading-text">CARREGANDO DADOS...</p>
+    </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
