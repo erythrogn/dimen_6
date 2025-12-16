@@ -18,9 +18,6 @@ def index():
 def sobre():
     return render_template('sobre.html', title="Sobre")
 
-# ==================================================
-# ROTA SERVIÇOS
-# ==================================================
 @app.route('/servicos')
 def servicos():
     return render_template('services.html', title="Serviços")
