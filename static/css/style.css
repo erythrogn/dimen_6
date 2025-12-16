@@ -1,18 +1,12 @@
-/* =========================================
-   1. FONTES E VARIÁVEIS
-   ========================================= */
-
 @font-face {
     font-family: 'Anurati';
-    /* Caminho corrigido para estrutura Flask */
     src: url('../fonts/Anurati-Regular.otf') format('opentype');
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Blanka';
-    /* Caminho corrigido para estrutura Flask */
-    src: url('../fonts/Blanka-Regular.otf') format('opentype');
+    src: url('../fonts/Anurati-Regular.otf') format('opentype');
     font-display: swap;
 }
 
@@ -30,10 +24,6 @@
     
     --header-height: 80px;
 }
-
-/* =========================================
-   2. RESET E BASE
-   ========================================= */
 
 * {
     margin: 0;
@@ -66,10 +56,6 @@ img {
     display: block;
 }
 
-/* =========================================
-   3. HEADER E NAVEGAÇÃO
-   ========================================= */
-
 header {
     position: fixed;
     top: 0;
@@ -84,7 +70,6 @@ header {
     transition: all 0.4s ease;
 }
 
-/* Classe adicionada via JS ao rolar */
 header.scrolled {
     padding: 10px 0;
     background: rgba(5, 10, 20, 0.98);
@@ -152,27 +137,19 @@ header.scrolled {
     transition: color 0.3s ease;
 }
 
-/* =========================================
-   4. HERO SECTIONS
-   ========================================= */
-
-/* Hero da Home */
 .hero {
     height: 100vh; 
     height: calc(var(--vh, 1vh) * 100); 
     display: flex;
     align-items: center;
-    /* REMOVIDO: background: url(...) */
     background: radial-gradient(circle at center, #1a2a4a 0%, #050A14 100%);
     position: relative;
     padding-top: var(--header-height);
 }
 
-/* Hero da página Sobre */
 .about-hero {
     min-height: 60vh;
     padding: 120px 0 80px;
-    /* REMOVIDO: background: url(...) */
     background: radial-gradient(circle at center, #1a2a4a 0%, #050A14 100%);
     display: flex;
     align-items: center;
@@ -227,13 +204,10 @@ header.scrolled {
     margin-right: auto;
 }
 
-/* Hero da página Sobre */
 .about-hero {
     min-height: 60vh;
     padding: 120px 0 80px;
-    /* Caminho corrigido para imagem */
-    background: linear-gradient(135deg, rgba(5, 10, 20, 0.95) 0%, rgba(10, 21, 37, 0.9) 100%), 
-                url('../images/dimen.png') no-repeat center center/cover;
+    background: linear-gradient(135deg, rgba(5, 10, 20, 0.95) 0%, rgba(10, 21, 37, 0.9) 100%);         
     display: flex;
     align-items: center;
     text-align: center;
@@ -267,11 +241,6 @@ header.scrolled {
     line-height: 1.6;
 }
 
-/* =========================================
-   5. COMPONENTES GERAIS
-   ========================================= */
-
-/* Botão CTA */
 .cta-button {
     display: inline-block;
     background: transparent;
@@ -306,7 +275,6 @@ header.scrolled {
     margin-top: 60px;
 }
 
-/* Títulos de Seção */
 .section-title {
     font-family: var(--font-heading);
     font-size: 2.5rem;
@@ -323,7 +291,6 @@ header.scrolled {
     position: relative;
 }
 
-/* Animação Scroll Reveal */
 .scroll-reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -334,10 +301,6 @@ header.scrolled {
     opacity: 1;
     transform: translateY(0);
 }
-
-/* =========================================
-   6. PÁGINA SOBRE (DETALHES)
-   ========================================= */
 
 .about-page-section {
     padding: 80px 0;
@@ -411,7 +374,6 @@ header.scrolled {
     color: var(--text-gray);
 }
 
-/* Tech Stack (Painel Visual) */
 .visual-frame {
     background: rgba(10, 21, 37, 0.7);
     border-radius: 10px;
@@ -465,10 +427,6 @@ header.scrolled {
     background-clip: text;
     color: transparent !important;
 }
-
-/* =========================================
-   7. SERVIÇOS (FLIP CARDS)
-   ========================================= */
 
 .services {
     padding: 80px 0;
@@ -599,10 +557,6 @@ header.scrolled {
     color: var(--secondary);
 }
 
-/* =========================================
-   8. PÁGINA CONTATO
-   ========================================= */
-
 .contact {
     padding: 140px 0 80px;
     background: linear-gradient(to top, rgba(0,0,0,0.9), var(--bg-dark));
@@ -657,7 +611,6 @@ header.scrolled {
     transform: translateX(5px);
 }
 
-/* Campos de Email com Ícone */
 .input-with-icon {
     position: relative;
 }
@@ -722,11 +675,6 @@ header.scrolled {
     margin-top: 30px;
 }
 
-/* =========================================
-   9. OVERLAYS E ANIMAÇÕES EXTRAS
-   ========================================= */
-
-/* Cubo 3D / Loading */
 .dimensional-overlay {
     position: fixed;
     top: 0;
@@ -751,7 +699,6 @@ header.scrolled {
     pointer-events: all;
 }
 
-/* Se quiser incluir o cubo, descomente ou adicione o HTML correspondente */
 .loading-text {
     margin-top: 20px;
     font-family: 'Orbitron', sans-serif;
@@ -765,10 +712,6 @@ header.scrolled {
     0%, 100% { opacity: 0.5; }
     50% { opacity: 1; text-shadow: 0 0 10px var(--primary); }
 }
-
-/* =========================================
-   10. FOOTER
-   ========================================= */
 
 footer {
     background-color: #020408;
@@ -807,10 +750,6 @@ footer {
     color: rgba(255,255,255,0.4);
 }
 
-/* =========================================
-   11. MEDIA QUERIES (RESPONSIVO GERAL)
-   ========================================= */
-
 @media (max-width: 992px) {
     .about-page-grid { grid-template-columns: 1fr; gap: 40px; }
     .visual-frame { position: static; }
@@ -819,7 +758,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Menu Mobile */
     .menu-toggle { display: block; z-index: 1002; }
     
     .nav-links {
@@ -848,18 +786,15 @@ footer {
     .nav-links li { margin: 0; width: 100%; text-align: center; }
     .nav-links a { font-size: 1.2rem; display: block; padding: 10px; }
 
-    /* Ajustes Gerais */
     .hero h1 { font-size: 2.2rem; }
     .section-title { font-size: 2rem; margin-bottom: 30px; }
     .hero p { font-size: 1rem; padding: 0 10px; }
     
     .about, .services, .contact { padding: 60px 0; }
     
-    /* Flip Cards */
     .services-grid { grid-template-columns: 1fr; padding: 0 10px; }
     .flip-card { height: 320px; }
     
-    /* Form */
     .contact { padding-top: 100px; align-items: flex-start; }
     .contact-form input, .contact-form textarea { font-size: 16px; padding: 12px; }
 }
