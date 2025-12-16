@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     
     {% block extra_css %}{% endblock %}
@@ -20,7 +22,7 @@
             <a href="{{ url_for('index') }}" class="logo">
                 <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="DIMEN6" class="logo-svg" width="120">
             </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação">
                 <i class="fas fa-bars"></i>
             </button>
             <nav>
@@ -38,18 +40,31 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer>
+<footer>
         <div class="container">
             <div class="footer-logo">
-                <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="DIMEN6" class="footer-logo-svg" width="100" style="margin: 0 auto 20px;">
+                <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="DIMEN6" class="footer-logo-svg" width="100">
             </div>
             <p class="footer-text">Transformando imaginação em realidade.</p>
+            
             <div class="social-links">
-                <a href="mailto:janaran52@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="https://wa.me/5594992691894" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://t.me/HESRON52" target="_blank"><i class="fab fa-telegram"></i></a>
-                <a href="https://instagram.com/dimen_6_" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:janaran52@gmail.com" aria-label="Enviar Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                
+                <a href="https://wa.me/5594992691894" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+                <a href="https://t.me/HESRON52" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+
+                <a href="https://instagram.com/dimen_6_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
             </div>
+            
             <div class="copyright">&copy; 2025 DIMEN6. Todos os direitos reservados.</div>
         </div>
     </footer>

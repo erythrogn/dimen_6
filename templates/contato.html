@@ -1,11 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}
-
-
-<section class="contact" id="contact">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/contato.css') }}">
-{% endblock %}
+{% block title %}Contato{% endblock %}
 
 {% block content %}
 <section class="contact" id="contact">
@@ -18,7 +13,6 @@
             <form class="contact-form" action="https://formsubmit.co/janaran52@gmail.com" method="POST">
                 <input type="hidden" name="_subject" value="Novo contato via Site DIMEN6!">
                 <input type="hidden" name="_captcha" value="false">
-                
                 <div class="form-group">
                     <input type="text" name="nome" placeholder="Seu Nome" required>
                 </div>
