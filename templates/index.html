@@ -1,0 +1,393 @@
+{% extends "base.html" %}
+
+{% block title %}DIMEN6 | Estúdio Digital de Alta Performance{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+
+
+<!-- ========================
+     LOADING SCREEN
+     ======================== -->
+<div class="d6-loader" id="loader">
+    <div class="loader-logo">
+        <div class="loader-hex"></div>
+    </div>
+    <div class="loader-text">DIMEN6 — INICIALIZANDO</div>
+    <div class="loader-bar-wrap">
+        <div class="loader-bar" id="loaderBar"></div>
+    </div>
+    <div class="loader-percent" id="loaderPercent">0%</div>
+</div>
+
+<!-- ========================
+     HERO
+     ======================== -->
+<section class="hero" id="hero">
+    <div class="hero-grid-bg"></div>
+
+    <div class="container">
+        <div class="hero-content">
+
+            <div class="hero-eyebrow">
+                <span class="eyebrow-line"></span>
+                <span class="eyebrow-text">Estúdio Digital — Est. 2024</span>
+                <span class="eyebrow-dot"></span>
+            </div>
+
+            <h1 class="hero-title">
+                <span class="line">
+                    <span class="word" style="transition-delay: 0.3s">Compilamos</span>
+                </span>
+                <span class="line">
+                    <span class="word accent" data-text="Experiências" style="transition-delay: 0.5s">Experiências</span>
+                </span>
+                <span class="line">
+                    <span class="word" style="transition-delay: 0.7s">que</span>
+                    &nbsp;
+                    <span class="word" style="transition-delay: 0.85s; color: var(--text-gray);">Dominam.</span>
+                </span>
+            </h1>
+
+            <p class="hero-sub">
+                Arquitetura de software de alta performance encontra direção de arte implacável. Não fazemos sites — <em style="color: var(--text-white);">engenhamos experiências digitais</em> que o seu cliente não consegue fechar.
+            </p>
+
+            <div class="hero-actions">
+                <a href="{{ url_for('contato') }}" class="btn-primary-mag">
+                    INICIAR PROJETO <i class="fas fa-arrow-right"></i>
+                </a>
+                <div class="hero-divider"></div>
+                <a href="{{ url_for('servicos') }}" class="btn-outline-mag">
+                    VER SERVIÇOS <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats flutuantes desktop -->
+    <div class="hero-float-stats">
+        <div class="float-stat">
+            <span class="float-stat-num">99</span>
+            <span class="float-stat-label">Lighthouse Score</span>
+        </div>
+        <div class="float-stat">
+            <span class="float-stat-num">10x</span>
+            <span class="float-stat-label">Mais Veloz</span>
+        </div>
+        <div class="float-stat">
+            <span class="float-stat-num">∞</span>
+            <span class="float-stat-label">Possibilidades</span>
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+    </div>
+</section>
+
+<!-- ========================
+     MARQUEE DUPLO
+     ======================== -->
+<div class="marquee-section">
+    <div class="marquee-fade-l"></div>
+    <div class="marquee-fade-r"></div>
+
+    <!-- Linha 1 -->
+    <div class="marquee-track">
+        <div class="marquee-item">NEXT.JS<span class="marquee-sep"></span></div>
+        <div class="marquee-item">REACT<span class="marquee-sep"></span></div>
+        <div class="marquee-item">PYTHON<span class="marquee-sep"></span></div>
+        <div class="marquee-item">BLENDER 3D<span class="marquee-sep"></span></div>
+        <div class="marquee-item">WEBGL<span class="marquee-sep"></span></div>
+        <div class="marquee-item">FLASK<span class="marquee-sep"></span></div>
+        <div class="marquee-item">SEO TÉCNICO<span class="marquee-sep"></span></div>
+        <div class="marquee-item">GSAP<span class="marquee-sep"></span></div>
+        <div class="marquee-item">THREE.JS<span class="marquee-sep"></span></div>
+        <!-- Duplicado para loop -->
+        <div class="marquee-item">NEXT.JS<span class="marquee-sep"></span></div>
+        <div class="marquee-item">REACT<span class="marquee-sep"></span></div>
+        <div class="marquee-item">PYTHON<span class="marquee-sep"></span></div>
+        <div class="marquee-item">BLENDER 3D<span class="marquee-sep"></span></div>
+        <div class="marquee-item">WEBGL<span class="marquee-sep"></span></div>
+        <div class="marquee-item">FLASK<span class="marquee-sep"></span></div>
+        <div class="marquee-item">SEO TÉCNICO<span class="marquee-sep"></span></div>
+        <div class="marquee-item">GSAP<span class="marquee-sep"></span></div>
+        <div class="marquee-item">THREE.JS<span class="marquee-sep"></span></div>
+    </div>
+</div>
+
+<!-- ========================
+     SERVIÇOS
+     ======================== -->
+<section class="services-index">
+    <div class="container">
+        <div class="section-header sr">
+            <div>
+                <div class="section-label">
+                    <span class="label-line"></span>
+                    O QUE FAZEMOS
+                </div>
+                <h2>Capacidades que <br><span>transcendem</span> o óbvio</h2>
+            </div>
+            <div class="section-header-right">
+                <p>Cada disciplina é dominada com profundidade técnica e obsessão estética. Sem templates. Sem atalhos.</p>
+                <a href="{{ url_for('servicos') }}" class="btn-outline-mag">
+                    VER TODOS <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="services-grid sr">
+            <div class="svc-card" data-magnetic>
+                <span class="svc-num">01</span>
+                <div class="svc-icon"><i class="fas fa-code"></i></div>
+                <h3 class="svc-title">Desenvolvimento Web</h3>
+                <p class="svc-desc">React, Next.js e Flask com score 99 no Lighthouse. Sites que não apenas funcionam — voam. Cada render otimizado para extrair o máximo do hardware.</p>
+                <span class="svc-arrow">VER DETALHES <i class="fas fa-arrow-right"></i></span>
+            </div>
+
+            <div class="svc-card" data-magnetic>
+                <span class="svc-num">02</span>
+                <div class="svc-icon"><i class="fas fa-cube"></i></div>
+                <h3 class="svc-title">3D & Experiências Imersivas</h3>
+                <p class="svc-desc">Modelagem Blender, WebGL e Three.js. Transformamos produtos em esculturas digitais interativas que o usuário precisa explorar.</p>
+                <span class="svc-arrow">VER DETALHES <i class="fas fa-arrow-right"></i></span>
+            </div>
+
+            <div class="svc-card" data-magnetic>
+                <span class="svc-num">03</span>
+                <div class="svc-icon"><i class="fas fa-palette"></i></div>
+                <h3 class="svc-title">UI/UX & Direção de Arte</h3>
+                <p class="svc-desc">Design baseado em dados de retenção e psicologia cognitiva. Cada pixel justificado por conversão — beleza com propósito mensurável.</p>
+                <span class="svc-arrow">VER DETALHES <i class="fas fa-arrow-right"></i></span>
+            </div>
+
+            <div class="svc-card" data-magnetic>
+                <span class="svc-num">04</span>
+                <div class="svc-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+                <h3 class="svc-title">SEO Técnico Avançado</h3>
+                <p class="svc-desc">Core Web Vitals, schema markup e arquitetura de dados implementados desde a linha 1 — não como afterthought. Visibilidade que converte.</p>
+                <span class="svc-arrow">VER DETALHES <i class="fas fa-arrow-right"></i></span>
+            </div>
+
+            <div class="svc-card" data-magnetic>
+                <span class="svc-num">05</span>
+                <div class="svc-icon"><i class="fas fa-server"></i></div>
+                <h3 class="svc-title">Back-end & Infraestrutura</h3>
+                <p class="svc-desc">APIs robustas, bancos de dados escaláveis e segurança de nível enterprise. Sua plataforma cresce sem refatoração no segundo ano.</p>
+                <span class="svc-arrow">VER DETALHES <i class="fas fa-arrow-right"></i></span>
+            </div>
+
+            <div class="svc-card" data-magnetic>
+                <span class="svc-num">06</span>
+                <div class="svc-icon"><i class="fas fa-rocket"></i></div>
+                <h3 class="svc-title">Estratégia & Performance</h3>
+                <p class="svc-desc">Auditoria de performance pós-lançamento, A/B testing e otimização contínua baseada em dados reais de uso — o trabalho não termina no deploy.</p>
+                <span class="svc-arrow">VER DETALHES <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     SHOWCASE / PROJETOS
+     ======================== -->
+<section class="showcase-section">
+    <div class="container">
+        <div class="section-header sr">
+            <div>
+                <div class="section-label">
+                    <span class="label-line"></span>
+                    PROJETOS SELECIONADOS
+                </div>
+                <h2>Trabalhos que <span>existem</span></h2>
+            </div>
+        </div>
+
+        <div class="project-list sr">
+            <div class="project-item">
+                <span class="proj-num">001</span>
+                <span class="proj-title">O Horizonte — Plataforma Social</span>
+                <div class="proj-tags">
+                    <span class="proj-tag">React</span>
+                    <span class="proj-tag">Python</span>
+                    <span class="proj-tag">WebGL</span>
+                </div>
+                <div class="proj-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <div class="project-item">
+                <span class="proj-num">002</span>
+                <span class="proj-title">E-commerce 3D — Produto Interativo</span>
+                <div class="proj-tags">
+                    <span class="proj-tag">Three.js</span>
+                    <span class="proj-tag">Next.js</span>
+                    <span class="proj-tag">GSAP</span>
+                </div>
+                <div class="proj-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <div class="project-item">
+                <span class="proj-num">003</span>
+                <span class="proj-title">Dashboard Analytics — SaaS</span>
+                <div class="proj-tags">
+                    <span class="proj-tag">Flask</span>
+                    <span class="proj-tag">PostgreSQL</span>
+                    <span class="proj-tag">D3.js</span>
+                </div>
+                <div class="proj-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <div class="project-item">
+                <span class="proj-num">004</span>
+                <span class="proj-title">Landing Page — Campanha Imersiva</span>
+                <div class="proj-tags">
+                    <span class="proj-tag">WebGL</span>
+                    <span class="proj-tag">GLSL</span>
+                    <span class="proj-tag">Blender</span>
+                </div>
+                <div class="proj-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     POR QUE DIMEN6
+     ======================== -->
+<section class="why-section">
+    <div class="container">
+        <div class="why-layout">
+            <div class="why-left sr-left">
+                <div class="section-label">
+                    <span class="label-line"></span>
+                    NOSSA FILOSOFIA
+                </div>
+                <h2>Código como <span>manifesto</span>.<br>Design como arma.</h2>
+                <p>A web está saturada de sites funcionais e invisíveis. Nós operamos no limite oposto — onde performance técnica é indistinguível de arte.</p>
+
+                <div class="terminal-block">
+                    <div class="terminal-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="terminal-body">
+                        <span class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">run audit --site cliente.com</span></span>
+                        <span class="t-line t-output">» Analisando performance...</span>
+                        <span class="t-line t-success">✓ Lighthouse Score: 99/100</span>
+                        <span class="t-line t-success">✓ CLS: 0.001 | LCP: 0.8s</span>
+                        <span class="t-line t-output">» Compilando experiência...</span>
+                        <span class="t-line"><span class="t-prompt">$ </span><span class="t-cursor"></span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="why-features sr-right">
+                <div class="why-feat">
+                    <div class="feat-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="feat-body">
+                        <h4>VELOCIDADE IMPLACÁVEL</h4>
+                        <p>Cada milissegundo conta. Nossa engenharia extrai o máximo do hardware — não fingimos performance, a entregamos.</p>
+                    </div>
+                </div>
+                <div class="why-feat">
+                    <div class="feat-icon"><i class="fas fa-brain"></i></div>
+                    <div class="feat-body">
+                        <h4>DESIGN BASEADO EM DADOS</h4>
+                        <p>Cada decisão visual tem embasamento em psicologia cognitiva e métricas de conversão reais — não em opinião.</p>
+                    </div>
+                </div>
+                <div class="why-feat">
+                    <div class="feat-icon"><i class="fas fa-shield-halved"></i></div>
+                    <div class="feat-body">
+                        <h4>ARQUITETURA PARA CRESCER</h4>
+                        <p>Construímos para escalar. Sua plataforma não precisará de refatoração completa quando dobrar de tamanho.</p>
+                    </div>
+                </div>
+                <div class="why-feat">
+                    <div class="feat-icon"><i class="fas fa-handshake-angle"></i></div>
+                    <div class="feat-body">
+                        <h4>TRANSPARÊNCIA TOTAL</h4>
+                        <p>Sem caixas-pretas. Você entende o que está sendo construído, por quê, e como medir o retorno.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     PROCESSO
+     ======================== -->
+<section class="process-index">
+    <div class="container">
+        <div class="text-center sr" style="margin-bottom: 0;">
+            <div class="section-label" style="justify-content: center; margin-bottom: 14px;">
+                <span class="label-line"></span>
+                COMO TRABALHAMOS
+                <span class="label-line"></span>
+            </div>
+            <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: 3px;">
+                Do conceito ao <span style="color: var(--primary);">deploy</span>
+            </h2>
+        </div>
+
+        <div class="process-timeline sr">
+            <div class="timeline-step">
+                <div class="timeline-step-num">01</div>
+                <h3>IMERSÃO</h3>
+                <p>Mapeamos a jornada do usuário, analisamos concorrentes e definimos a arquitetura ideal para o seu mercado específico.</p>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-step-num">02</div>
+                <h3>CONCEITO</h3>
+                <p>Prototipagem de alta fidelidade e direção de arte focadas em retenção — cada tela validada antes do primeiro commit.</p>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-step-num">03</div>
+                <h3>EXECUÇÃO</h3>
+                <p>Desenvolvimento em React/Next.js acelerado por hardware, 3D em Blender e WebGL, back-end seguro em Python/Flask.</p>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-step-num">04</div>
+                <h3>EVOLUÇÃO</h3>
+                <p>Auditoria pós-lançamento, A/B testing e otimização contínua baseada em dados reais — o trabalho não termina no deploy.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     CTA FINAL
+     ======================== -->
+<section class="cta-final">
+    <div class="container">
+        <div class="cta-final-inner sr">
+            <div class="cta-label">
+                <i class="fas fa-circle" style="font-size: 0.4rem;"></i>
+                DISPONÍVEL PARA PROJETOS
+                <i class="fas fa-circle" style="font-size: 0.4rem;"></i>
+            </div>
+            <h2>
+                Sua visão merece<br>
+                uma <span>6ª dimensão</span>.
+            </h2>
+            <p>A web está cheia de presença digital. Vamos criar uma experiência que o mercado não consegue ignorar.</p>
+            <div class="cta-final-btns">
+                <a href="{{ url_for('contato') }}" class="btn-primary-mag">
+                    INICIAR PROJETO <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="{{ url_for('sobre') }}" class="btn-outline-mag">
+                    CONHECER O ESTÚDIO <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

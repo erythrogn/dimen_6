@@ -1,0 +1,658 @@
+/* =========================
+   contato.css — Multi-Step Premium
+   ========================= */
+
+.contact {
+    padding: 120px 0 100px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Luz de fundo radial */
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 20%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(0, 243, 255, 0.04) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.contact::after {
+    content: '';
+    position: absolute;
+    bottom: 10%; right: 5%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(112, 0, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.contact .container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ─── INDICADOR DE PROGRESSO ─── */
+.steps-progress {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.step-dot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: default;
+    position: relative;
+    z-index: 2;
+}
+
+.dot-num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(10, 21, 37, 0.8);
+    color: var(--text-gray);
+    transition: all 0.4s ease;
+}
+
+.dot-label {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    font-family: var(--font-heading);
+    transition: color 0.4s ease;
+}
+
+/* Ativo */
+.step-dot.active .dot-num {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+}
+
+.step-dot.active .dot-label {
+    color: var(--primary);
+}
+
+/* Concluído */
+.step-dot.done .dot-num {
+    background: rgba(0, 243, 255, 0.15);
+    border-color: rgba(0, 243, 255, 0.4);
+    color: var(--primary);
+}
+
+.step-line {
+    width: 80px; height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin: 0 6px;
+    margin-bottom: 28px;
+    transition: background 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.step-line::after {
+    content: '';
+    position: absolute;
+    left: -100%; top: 0;
+    width: 100%; height: 100%;
+    background: var(--primary);
+    transition: left 0.5s ease;
+    box-shadow: 0 0 6px var(--primary);
+}
+
+.step-line.done::after {
+    left: 0;
+}
+
+/* ─── SHELL DO FORM ─── */
+.multistep-shell {
+    width: 100%;
+    max-width: 680px;
+    position: relative;
+    min-height: 460px;
+}
+
+/* ─── CADA STEP ─── */
+.ms-step {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    animation: stepIn 0.4s cubic-bezier(0.25, 0.1, 0.25, 1.0) both;
+}
+
+.ms-step.active {
+    display: flex;
+}
+
+@keyframes stepIn {
+    from { opacity: 0; transform: translateX(30px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes stepBack {
+    from { opacity: 0; transform: translateX(-30px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.ms-step.going-back {
+    animation: stepBack 0.4s cubic-bezier(0.25, 0.1, 0.25, 1.0) both;
+}
+
+/* ─── HEADER DO STEP ─── */
+.ms-header {
+    margin-bottom: 36px;
+}
+
+.ms-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 14px;
+    opacity: 0.8;
+}
+
+.ms-title {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: var(--text-white);
+    letter-spacing: 2px;
+}
+
+.ms-title span {
+    color: var(--primary);
+    text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+}
+
+.ms-subtitle {
+    font-size: 1rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+/* ─── BODY DO STEP ─── */
+.ms-body {
+    flex: 1;
+    margin-bottom: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ─── TEXTAREA ─── */
+.textarea-wrapper {
+    position: relative;
+}
+
+.textarea-wrapper textarea {
+    width: 100%;
+    padding: 20px;
+    background: rgba(10, 21, 37, 0.7);
+    border: 1px solid rgba(0, 243, 255, 0.15);
+    border-left: 3px solid rgba(0, 243, 255, 0.3);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border-radius: 12px;
+    resize: none;
+    line-height: 1.7;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.textarea-wrapper textarea:focus {
+    outline: none;
+    border-color: rgba(0, 243, 255, 0.5);
+    border-left-color: var(--primary);
+    background: rgba(5, 12, 25, 0.9);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.08);
+}
+
+.char-counter {
+    position: absolute;
+    bottom: 14px; right: 16px;
+    font-size: 0.72rem;
+    color: var(--text-gray);
+    opacity: 0.5;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+    pointer-events: none;
+}
+
+/* ─── CHIPS DE SERVIÇO ─── */
+.service-chips {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.chip-label {
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    font-family: var(--font-heading);
+}
+
+.chips-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 30px;
+    color: var(--text-gray);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.chip:hover {
+    border-color: rgba(0, 243, 255, 0.3);
+    color: var(--text-white);
+    background: rgba(0, 243, 255, 0.05);
+}
+
+.chip.selected {
+    background: rgba(0, 243, 255, 0.12);
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 12px rgba(0, 243, 255, 0.15);
+}
+
+.chip i {
+    font-size: 0.85rem;
+}
+
+/* ─── INPUT DE NOME ─── */
+.name-input-wrapper {
+    position: relative;
+}
+
+.name-icon {
+    position: absolute;
+    left: 20px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary);
+    opacity: 0.6;
+    font-size: 1.1rem;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.name-input-wrapper input {
+    width: 100%;
+    padding: 20px 20px 20px 54px;
+    background: rgba(10, 21, 37, 0.7);
+    border: 1px solid rgba(0, 243, 255, 0.15);
+    border-left: 3px solid rgba(0, 243, 255, 0.3);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.name-input-wrapper input:focus {
+    outline: none;
+    border-color: rgba(0, 243, 255, 0.5);
+    border-left-color: var(--primary);
+    background: rgba(5, 12, 25, 0.9);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.08);
+}
+
+.name-input-wrapper input::placeholder {
+    color: rgba(255,255,255,0.2);
+}
+
+/* ─── PREVIEW CARD (STEP 2) ─── */
+.preview-card {
+    background: rgba(0, 243, 255, 0.03);
+    border: 1px solid rgba(0, 243, 255, 0.1);
+    border-radius: 12px;
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.preview-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.preview-label {
+    font-size: 0.68rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    font-family: var(--font-heading);
+    min-width: 68px;
+    padding-top: 2px;
+}
+
+.preview-val {
+    font-size: 0.92rem;
+    color: var(--text-white);
+    line-height: 1.5;
+}
+
+.preview-trunc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ─── GRID DE CANAIS ─── */
+.channel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.channel-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 28px 20px 22px;
+    background: rgba(10, 21, 37, 0.6);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    overflow: hidden;
+}
+
+.channel-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 243, 255, 0.3);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 243, 255, 0.08);
+}
+
+/* Brilho de entrada */
+.channel-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    border-radius: inherit;
+}
+
+.channel-card[data-channel="whatsapp"]::before {
+    background: radial-gradient(circle at 50% 0%, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
+}
+.channel-card[data-channel="instagram"]::before {
+    background: radial-gradient(circle at 50% 0%, rgba(225, 48, 108, 0.1) 0%, transparent 70%);
+}
+.channel-card[data-channel="email"]::before {
+    background: radial-gradient(circle at 50% 0%, rgba(0, 243, 255, 0.08) 0%, transparent 70%);
+}
+.channel-card[data-channel="linkedin"]::before {
+    background: radial-gradient(circle at 50% 0%, rgba(10, 102, 194, 0.12) 0%, transparent 70%);
+}
+
+.channel-card:hover::before {
+    opacity: 1;
+}
+
+/* Ícone do canal */
+.channel-icon {
+    width: 58px; height: 58px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.whatsapp-icon  { background: rgba(37, 211, 102, 0.12); color: #25D366; border: 1px solid rgba(37, 211, 102, 0.25); }
+.instagram-icon { background: rgba(225, 48, 108, 0.12); color: #E1306C; border: 1px solid rgba(225, 48, 108, 0.25); }
+.email-icon     { background: rgba(0, 243, 255, 0.10);  color: var(--primary); border: 1px solid rgba(0, 243, 255, 0.2); }
+.linkedin-icon  { background: rgba(10, 102, 194, 0.12); color: #0A66C2; border: 1px solid rgba(10, 102, 194, 0.25); }
+
+.channel-card:hover .channel-icon {
+    transform: scale(1.1);
+}
+
+.channel-card[data-channel="whatsapp"]:hover  .channel-icon { box-shadow: 0 0 20px rgba(37, 211, 102, 0.3); }
+.channel-card[data-channel="instagram"]:hover .channel-icon { box-shadow: 0 0 20px rgba(225, 48, 108, 0.3); }
+.channel-card[data-channel="email"]:hover     .channel-icon { box-shadow: 0 0 20px rgba(0, 243, 255, 0.3); }
+.channel-card[data-channel="linkedin"]:hover  .channel-icon { box-shadow: 0 0 20px rgba(10, 102, 194, 0.3); }
+
+.channel-name {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    color: var(--text-white);
+    letter-spacing: 1.5px;
+}
+
+.channel-desc {
+    font-size: 0.78rem;
+    color: var(--text-gray);
+    letter-spacing: 0.5px;
+}
+
+/* Badge "Recomendado" */
+.channel-badge {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: rgba(0, 243, 255, 0.12);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    color: var(--primary);
+    font-size: 0.55rem;
+    letter-spacing: 1.5px;
+    font-family: var(--font-heading);
+    padding: 3px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+/* ─── FINAL PREVIEW (STEP 3) ─── */
+.final-preview {
+    background: rgba(10, 21, 37, 0.5);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fp-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.88rem;
+    color: var(--text-gray);
+}
+
+.fp-icon {
+    color: var(--primary);
+    font-size: 0.8rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+    width: 16px;
+    text-align: center;
+    filter: drop-shadow(0 0 4px rgba(0, 243, 255, 0.4));
+}
+
+/* ─── BOTÕES DE NAVEGAÇÃO ─── */
+.ms-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+}
+
+.ms-next {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 34px;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
+}
+
+.ms-next:hover {
+    background: rgba(0, 243, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+}
+
+.ms-next i { transition: transform 0.3s ease; }
+.ms-next:hover i { transform: translateX(4px); }
+
+.ms-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 22px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-gray);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.ms-back:hover {
+    border-color: rgba(255,255,255,0.25);
+    color: var(--text-white);
+}
+
+.ms-back i { transition: transform 0.3s ease; }
+.ms-back:hover i { transform: translateX(-4px); }
+
+/* ─── TELA DE CONFIRMAÇÃO ─── */
+.confirm-shell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    gap: 16px;
+    animation: confirmIn 0.5s ease both;
+}
+
+@keyframes confirmIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.confirm-icon {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: rgba(0, 243, 255, 0.1);
+    border: 2px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--primary);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+    animation: pulseConfirm 1.5s ease-in-out infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes pulseConfirm {
+    0%, 100% { box-shadow: 0 0 25px rgba(0, 243, 255, 0.3); }
+    50%       { box-shadow: 0 0 50px rgba(0, 243, 255, 0.6); }
+}
+
+.confirm-channel-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--primary);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* ─── RESPONSIVO ─── */
+@media (max-width: 768px) {
+    .contact { padding: 100px 0 80px; }
+
+    .step-line { width: 40px; }
+
+    .ms-title { font-size: 1.8rem; }
+
+    .channel-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .channel-card { padding: 20px 14px 16px; }
+    .channel-icon { width: 48px; height: 48px; font-size: 1.3rem; }
+    .channel-name { font-size: 0.82rem; }
+    .channel-desc { font-size: 0.72rem; }
+}
+
+@media (max-width: 480px) {
+    .steps-progress { gap: 0; }
+    .step-line { width: 24px; }
+    .dot-num { width: 36px; height: 36px; font-size: 0.65rem; }
+    .dot-label { font-size: 0.58rem; }
+
+    .channel-grid { grid-template-columns: 1fr 1fr; }
+    .ms-footer { flex-direction: column-reverse; width: 100%; }
+    .ms-next, .ms-back { width: 100%; justify-content: center; }
+}

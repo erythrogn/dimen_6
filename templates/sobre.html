@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+
+{% block title %}Sobre | DIMEN6{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sobre.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="d6-cursor"></div>
+<div class="d6-cursor-follower"></div>
+
+<!-- ========================
+     HERO
+     ======================== -->
+<section class="about-hero" id="sobre-hero">
+    <div class="hero-parallax-bg" data-parallax="-0.3"></div>
+    <div class="container relative-z">
+        <div class="about-hero-content">
+            <span class="hero-tagline d6-reveal" data-delay="0.1">
+                <i class="fas fa-microchip"></i> NOSSO DNA
+            </span>
+            <h1 class="d6-split-text" data-split="chars">
+                Construindo a<br><span class="highlight">6ª Dimensão</span>
+            </h1>
+            <p class="hero-subtitle d6-reveal" data-delay="0.6">
+                Não seguimos tendências. Nós compilamos o futuro. A DIMEN6 é um estúdio digital onde arquitetura de software de alta performance colide com direção de arte implacável — cada projeto uma experiência sensorial que desafia o convencional.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     STATS
+     ======================== -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item d6-reveal" data-delay="0.1">
+                <span class="stat-number d6-counter" data-target="99" data-suffix="%">0</span>
+                <span class="stat-label">Desempenho Lighthouse</span>
+            </div>
+            <div class="stat-item d6-reveal" data-delay="0.2">
+                <span class="stat-number d6-counter" data-target="10" data-suffix="x">0</span>
+                <span class="stat-label">Mais Rápido que a Média</span>
+            </div>
+            <div class="stat-item d6-reveal" data-delay="0.3">
+                <span class="stat-number d6-counter" data-target="3" data-suffix="D">0</span>
+                <span class="stat-label">Modelagem & Render</span>
+            </div>
+            <div class="stat-item d6-reveal" data-delay="0.4">
+                <span class="stat-number d6-counter" data-target="100" data-suffix="%">0</span>
+                <span class="stat-label">Foco em Conversão</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     FUNDADOR
+     ======================== -->
+<section class="founder-section">
+    <div class="container">
+        <div class="founder-layout">
+            <div class="founder-visual d6-tilt d6-reveal" data-delay="0.1" data-tilt-max="8" data-tilt-speed="400">
+                <div class="photo-grid">
+
+                    <!-- Foto principal — Hesron -->
+                    <div class="photo-card photo-main">
+                        <img src="{{ url_for('static', filename='images/hesron.png') }}" alt="Hesron Jaranan — Fundador da DIMEN6" loading="lazy">
+                        <div class="photo-overlay"></div>
+                        <div class="photo-corners"></div>
+                        <div class="photo-tag">
+                            <i class="fas fa-terminal"></i> HESRON.JARANAN
+                        </div>
+                    </div>
+
+                    <!-- Foto secundária — Aura -->
+                    <div class="photo-card photo-secondary">
+                        <img src="{{ url_for('static', filename='images/aura.png') }}" alt="Aura — Chief Happiness Officer" loading="lazy">
+                        <div class="photo-overlay"></div>
+                        <div class="photo-corners"></div>
+                        <div class="photo-tag aura-tag">
+                            <i class="fas fa-paw"></i> AURA — C.H.O.
+                        </div>
+                        <div class="aura-badge-photo">
+                            <span class="status-dot-aura"></span> ON DUTY
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Texto -->
+            <div class="founder-text d6-reveal" data-delay="0.2">
+                <h2 class="d6-split-text" data-split="words">O Arquiteto do Sistema</h2>
+                <h4 class="founder-role">Hesron Jaranan — Analista de T.I. & Fundador</h4>
+
+                <p>
+                    Com uma base em análise de sistemas e pós-graduando em Engenharia de Software, Hesron fundou a DIMEN6 sob uma premissa clara: a web não deve ser apenas funcional — deve ser uma experiência sensorial profunda que o usuário não esquece.
+                </p>
+                <p>
+                    Cada linha de código é escrita com intenção. Geralmente nas madrugadas, sob a supervisão atenta da nossa Chief Happiness Officer oficial, a vira-lata Aura — nascida em 2024 e absolutamente inflexível quanto aos horários de carinho.
+                </p>
+                <p>
+                    O rigor acadêmico encontra a criatividade rebelde da web moderna. O resultado é o que você está vendo agora.
+                </p>
+
+                <!-- Skills chips -->
+                <div class="skills-row">
+                    <span class="skill-chip">React / Next.js</span>
+                    <span class="skill-chip">Python / Flask</span>
+                    <span class="skill-chip">Blender 3D</span>
+                    <span class="skill-chip">WebGL / GLSL</span>
+                    <span class="skill-chip">UI / UX Design</span>
+                    <span class="skill-chip">SEO Técnico</span>
+                </div>
+
+                <a href="#" target="_blank" class="d6-magnetic-btn outline-btn mt-20">
+                    <span class="btn-text">CONECTAR NO LINKEDIN <i class="fab fa-linkedin-in"></i></span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Propósito -->
+        <div class="purpose-block d6-reveal" data-delay="0.1">
+            <div class="purpose-icon"><i class="fas fa-heart-pulse"></i></div>
+            <h3>Tecnologia com Propósito: <span>O Horizonte</span></h3>
+            <p>
+                Acreditamos que a tecnologia mais avançada é aquela que acolhe. Contrastando com nossa estética fria e high-tech, a DIMEN6 orgulha-se de investir seus recursos no desenvolvimento do projeto <strong>"O Horizonte"</strong> — uma plataforma totalmente gratuita dedicada a oferecer suporte emocional e um espaço seguro no ambiente digital. Porque código sem propósito é apenas ruído.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     TECH STACK MARQUEE
+     ======================== -->
+<section class="tech-stack-section">
+    <div class="tech-fade left"></div>
+    <div class="tech-fade right"></div>
+
+    <div class="d6-marquee" data-speed="1.5">
+        <div class="marquee-content">
+            <span>NEXT.JS</span> <i class="fas fa-asterisk"></i>
+            <span>REACT</span> <i class="fas fa-asterisk"></i>
+            <span>PYTHON</span> <i class="fas fa-asterisk"></i>
+            <span>FLASK</span> <i class="fas fa-asterisk"></i>
+            <span>BLENDER 3D</span> <i class="fas fa-asterisk"></i>
+            <span>WEBGL</span> <i class="fas fa-asterisk"></i>
+            <span>GSAP</span> <i class="fas fa-asterisk"></i>
+            <span>JAVASCRIPT</span> <i class="fas fa-asterisk"></i>
+            <span>THREE.JS</span> <i class="fas fa-asterisk"></i>
+            <span>POSTGRESQL</span> <i class="fas fa-asterisk"></i>
+
+            <!-- Duplicado para loop infinito -->
+            <span>NEXT.JS</span> <i class="fas fa-asterisk"></i>
+            <span>REACT</span> <i class="fas fa-asterisk"></i>
+            <span>PYTHON</span> <i class="fas fa-asterisk"></i>
+            <span>FLASK</span> <i class="fas fa-asterisk"></i>
+            <span>BLENDER 3D</span> <i class="fas fa-asterisk"></i>
+            <span>WEBGL</span> <i class="fas fa-asterisk"></i>
+            <span>GSAP</span> <i class="fas fa-asterisk"></i>
+            <span>JAVASCRIPT</span> <i class="fas fa-asterisk"></i>
+            <span>THREE.JS</span> <i class="fas fa-asterisk"></i>
+            <span>POSTGRESQL</span> <i class="fas fa-asterisk"></i>
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     VALORES / DIFERENCIAIS
+     ======================== -->
+<section class="values-section">
+    <div class="container">
+        <div class="text-center d6-reveal">
+            <h2 class="section-title d6-split-text" data-split="words">Por que a <span>DIMEN6</span>?</h2>
+            <p style="color: var(--text-gray); margin-bottom: 60px; font-size: 1.1rem;">O que nos diferencia vai além do código.</p>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card d6-reveal" data-delay="0.1">
+                <i class="fas fa-tachometer-alt value-icon"></i>
+                <h4>Performance Obsessiva</h4>
+                <p>Cada kilobyte é auditado. Cada render é otimizado. Entregamos sites com score 99 no Lighthouse sem comprometer a experiência visual.</p>
+            </div>
+            <div class="value-card d6-reveal" data-delay="0.2">
+                <i class="fas fa-palette value-icon"></i>
+                <h4>Arte Implacável</h4>
+                <p>Design não é cosmético — é estratégia. Cada escolha visual é embasada em dados de retenção e psicologia do usuário.</p>
+            </div>
+            <div class="value-card d6-reveal" data-delay="0.3">
+                <i class="fas fa-cube value-icon"></i>
+                <h4>3D & Interatividade</h4>
+                <p>Da modelagem ao WebGL, trazemos profundidade real para a web. Nossas interfaces são experenciadas, não apenas vistas.</p>
+            </div>
+            <div class="value-card d6-reveal" data-delay="0.4">
+                <i class="fas fa-shield-halved value-icon"></i>
+                <h4>Back-end Sólido</h4>
+                <p>Segurança, escalabilidade e arquitetura limpa. Seu projeto cresce sem reescrever nada do zero no segundo ano.</p>
+            </div>
+            <div class="value-card d6-reveal" data-delay="0.5">
+                <i class="fas fa-magnifying-glass-chart value-icon"></i>
+                <h4>SEO Técnico Avançado</h4>
+                <p>Estrutura de dados, Core Web Vitals e schema markup aplicados desde a linha 1 de código — não como afterthought.</p>
+            </div>
+            <div class="value-card d6-reveal" data-delay="0.6">
+                <i class="fas fa-handshake value-icon"></i>
+                <h4>Transparência Total</h4>
+                <p>Sem jargão vazio. Você sabe o que está sendo construído, por quê e como isso impacta seu negócio — em linguagem humana.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     METODOLOGIA
+     ======================== -->
+<section class="process-section">
+    <div class="container">
+        <div class="text-center d6-reveal">
+            <h2 class="section-title d6-split-text" data-split="words">Nossa <span>Metodologia</span></h2>
+            <p style="color: var(--text-gray); margin-bottom: 60px; font-size: 1.1rem;">Como transformamos lógica em arte digital.</p>
+        </div>
+
+        <div class="process-steps">
+            <div class="step d6-tilt d6-reveal" data-delay="0.1">
+                <span class="step-number">01</span>
+                <div class="step-icon"><i class="fas fa-search"></i></div>
+                <h3>Imersão</h3>
+                <p>Mapeamento da jornada do usuário, análise de concorrência, definição de personas e arquitetura de informação ideal para o seu mercado.</p>
+            </div>
+
+            <div class="step d6-tilt d6-reveal" data-delay="0.2">
+                <span class="step-number">02</span>
+                <div class="step-icon"><i class="fas fa-pencil-ruler"></i></div>
+                <h3>Conceito</h3>
+                <p>Prototipagem de alta fidelidade, direção de arte e identidade visual focadas exclusivamente em retenção de atenção e conversão.</p>
+            </div>
+
+            <div class="step d6-tilt d6-reveal" data-delay="0.3">
+                <span class="step-number">03</span>
+                <div class="step-icon"><i class="fas fa-code"></i></div>
+                <h3>Execução</h3>
+                <p>Desenvolvimento em React/Next.js acelerado por hardware, modelagem 3D em Blender, shaders WebGL e back-end seguro em Python.</p>
+            </div>
+
+            <div class="step d6-tilt d6-reveal" data-delay="0.4">
+                <span class="step-number">04</span>
+                <div class="step-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Deploy</h3>
+                <p>Auditoria rigorosa de performance, SEO técnico avançado, monitoramento pós-lançamento e otimização contínua baseada em dados reais.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     CTA BANNER
+     ======================== -->
+<section class="about-cta-banner d6-reveal">
+    <div class="container">
+        <div class="cta-banner-content">
+            <div class="cta-text">
+                <h2>Pronto para compilar a <span>sua visão</span>?</h2>
+                <p>A web está saturada de sites mortos. Vamos criar uma experiência viva — que converte, retém e impressiona.</p>
+            </div>
+            <div class="cta-action">
+                <a href="{{ url_for('contato') }}" class="d6-magnetic-btn solid-btn">
+                    <span class="btn-text">INICIAR PROJETO <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

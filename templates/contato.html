@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% block title %}Contato{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contato.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="c-cursor-dot" id="cursorDot"></div>
+<div class="c-cursor-ring" id="cursorRing"></div>
+<section class="contact" id="contact">
+    <div class="container">
+
+        <!-- INDICADOR DE PROGRESSO -->
+        <div class="steps-progress scroll-reveal">
+            <div class="step-dot active" data-step="1">
+                <span class="dot-num">01</span>
+                <span class="dot-label">Projeto</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-dot" data-step="2">
+                <span class="dot-num">02</span>
+                <span class="dot-label">Identidade</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-dot" data-step="3">
+                <span class="dot-num">03</span>
+                <span class="dot-label">Contato</span>
+            </div>
+        </div>
+
+        <!-- FORMULÁRIO MULTI-STEP -->
+        <div class="multistep-shell scroll-reveal">
+
+            <!-- ── STEP 1: DESCREVA O PROJETO ── -->
+            <div class="ms-step active" id="step-1">
+                <div class="ms-header">
+                    <span class="ms-tag"><i class="fas fa-wand-magic-sparkles"></i> PASSO 1 DE 3</span>
+                    <h2 class="ms-title">Qual é a sua <span>visão</span>?</h2>
+                    <p class="ms-subtitle">Descreva o seu projeto, ideia ou necessidade. Quanto mais detalhes, melhor.</p>
+                </div>
+
+                <div class="ms-body">
+                    <div class="textarea-wrapper">
+                        <textarea
+                            id="projeto"
+                            name="mensagem"
+                            rows="6"
+                            placeholder="Ex: Quero um site para minha marca de moda com estética futurista, animações 3D e loja integrada..."
+                            maxlength="800"
+                        ></textarea>
+                        <div class="char-counter"><span id="charCount">0</span> / 800</div>
+                    </div>
+
+                    <div class="service-chips">
+                        <span class="chip-label">Selecione o serviço:</span>
+                        <div class="chips-row">
+                            <button type="button" class="chip" data-val="Sites">
+                                <i class="fas fa-globe"></i> Sites
+                            </button>
+                            <button type="button" class="chip" data-val="Branding">
+                                <i class="fas fa-lightbulb"></i> Branding
+                            </button>
+                            <button type="button" class="chip" data-val="Artes">
+                                <i class="fas fa-palette"></i> Artes
+                            </button>
+                            <button type="button" class="chip" data-val="Modelagem 3D">
+                                <i class="fas fa-cube"></i> 3D
+                            </button>
+                            <button type="button" class="chip" data-val="Motion & VFX">
+                                <i class="fas fa-wand-magic-sparkles"></i> Motion
+                            </button>
+                            <button type="button" class="chip" data-val="CGI">
+                                <i class="fas fa-clapperboard"></i> CGI
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ms-footer">
+                    <button class="ms-next" id="btn-next-1">
+                        PRÓXIMO <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ── STEP 2: NOME / EMPRESA ── -->
+            <div class="ms-step" id="step-2">
+                <div class="ms-header">
+                    <span class="ms-tag"><i class="fas fa-user"></i> PASSO 2 DE 3</span>
+                    <h2 class="ms-title">Quem é <span>você</span>?</h2>
+                    <p class="ms-subtitle">Seu nome ou o nome da sua empresa para sabermos como chamá-lo.</p>
+                </div>
+
+                <div class="ms-body">
+                    <div class="name-input-wrapper">
+                        <i class="fas fa-user-astronaut name-icon"></i>
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Nome ou empresa..."
+                            autocomplete="off"
+                            maxlength="80"
+                        >
+                    </div>
+
+                    <!-- Preview do que vai ser enviado -->
+                    <div class="preview-card" id="previewCard">
+                        <div class="preview-row">
+                            <span class="preview-label">Serviço</span>
+                            <span class="preview-val" id="prev-servico">—</span>
+                        </div>
+                        <div class="preview-row">
+                            <span class="preview-label">Projeto</span>
+                            <span class="preview-val preview-trunc" id="prev-projeto">—</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ms-footer">
+                    <button class="ms-back" id="btn-back-2">
+                        <i class="fas fa-arrow-left"></i> VOLTAR
+                    </button>
+                    <button class="ms-next" id="btn-next-2">
+                        PRÓXIMO <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ── STEP 3: CANAL DE CONTATO ── -->
+            <div class="ms-step" id="step-3">
+                <div class="ms-header">
+                    <span class="ms-tag"><i class="fas fa-satellite-dish"></i> PASSO 3 DE 3</span>
+                    <h2 class="ms-title">Como prefere <span>falar</span>?</h2>
+                    <p class="ms-subtitle">Escolha o canal e será redirecionado com sua mensagem já pronta.</p>
+                </div>
+
+                <div class="ms-body">
+                    <div class="channel-grid">
+
+                        <button class="channel-card" data-channel="whatsapp">
+                            <div class="channel-icon whatsapp-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <span class="channel-name">WhatsApp</span>
+                            <span class="channel-desc">Resposta mais rápida</span>
+                            <div class="channel-badge">RECOMENDADO</div>
+                        </button>
+
+                        <button class="channel-card" data-channel="instagram">
+                            <div class="channel-icon instagram-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <span class="channel-name">Instagram</span>
+                            <span class="channel-desc">Direct Message</span>
+                        </button>
+
+                        <button class="channel-card" data-channel="email">
+                            <div class="channel-icon email-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span class="channel-name">E-mail</span>
+                            <span class="channel-desc">Formal e detalhado</span>
+                        </button>
+
+                        <button class="channel-card" data-channel="linkedin">
+                            <div class="channel-icon linkedin-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <span class="channel-name">LinkedIn</span>
+                            <span class="channel-desc">Conexão profissional</span>
+                        </button>
+
+                    </div>
+
+                    <!-- Preview final -->
+                    <div class="final-preview" id="finalPreview">
+                        <div class="fp-row">
+                            <i class="fas fa-user fp-icon"></i>
+                            <span id="fp-nome">—</span>
+                        </div>
+                        <div class="fp-row">
+                            <i class="fas fa-tag fp-icon"></i>
+                            <span id="fp-servico">—</span>
+                        </div>
+                        <div class="fp-row">
+                            <i class="fas fa-align-left fp-icon"></i>
+                            <span id="fp-projeto" class="preview-trunc">—</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ms-footer">
+                    <button class="ms-back" id="btn-back-3">
+                        <i class="fas fa-arrow-left"></i> VOLTAR
+                    </button>
+                </div>
+            </div>
+
+            <!-- ── CONFIRMAÇÃO ── -->
+            <div class="ms-step" id="step-confirm">
+                <div class="confirm-shell">
+                    <div class="confirm-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h2 class="ms-title">Redirecionando<span>...</span></h2>
+                    <p class="ms-subtitle">Sua mensagem foi preparada. Você será redirecionado em instantes.</p>
+                    <div class="confirm-channel-name" id="confirmChannelName"></div>
+                </div>
+            </div>
+
+        </div><!-- /.multistep-shell -->
+    </div><!-- /.container -->
+</section>
+
+{% endblock %}

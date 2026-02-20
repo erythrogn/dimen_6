@@ -1,0 +1,305 @@
+{% extends "base.html" %}
+
+{% block title %}Serviços | DIMEN6{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="d6-cursor"></div>
+<div class="d6-cursor-follower"></div>
+
+<section class="services-hero" id="services">
+    <div class="container relative-z">
+
+        <div class="text-center d6-reveal" style="margin-bottom: 50px;">
+            <span class="hero-tagline"><i class="fas fa-layer-group"></i> ARSENAL TÉCNICO</span>
+            <h2 class="section-title" style="margin-bottom: 10px;">Nossas <span>Dimensões</span></h2>
+            <p style="color: var(--text-gray); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                Soluções de alta performance desenhadas para dominar o mercado digital.
+            </p>
+        </div>
+
+        <div class="accordion-services d6-reveal" id="accordionServices">
+
+            <div class="acc-item active" data-index="0">
+                <div class="acc-bg" style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="acc-overlay"></div>
+                <i class="fas fa-globe acc-icon-collapsed"></i>
+                <span class="acc-number">Sites</span>
+                <div class="acc-content">
+                    <span class="acc-tag"><i class="fas fa-globe"></i> Desenvolvimento</span>
+                    <h3 class="acc-title">SITES WEB</h3>
+                    <p class="acc-desc">Interfaces de alta performance com foco em UX/UI, aceleração via GPU e tecnologia imersiva que converte visitantes em clientes.</p>
+                    <div class="acc-price-row">
+                        <div class="acc-price-info">
+                            <span class="acc-price-label">A partir de</span>
+                            <span class="acc-price-val">R$ 1.000,00</span>
+                        </div>
+                        <a href="{{ url_for('contato') }}" class="acc-cta outline-btn">
+                            SOLICITAR <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-index="1">
+                <div class="acc-bg" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="acc-overlay"></div>
+                <i class="fas fa-lightbulb acc-icon-collapsed"></i>
+                <span class="acc-number">Branding</span>
+                <div class="acc-content">
+                    <span class="acc-tag"><i class="fas fa-lightbulb"></i> Identidade Visual</span>
+                    <h3 class="acc-title">BRANDING</h3>
+                    <p class="acc-desc">Criação de marcas e identidades visuais que definem autoridade, presença e personalidade no mercado digital competitivo.</p>
+                    <div class="acc-price-row">
+                        <div class="acc-price-info">
+                            <span class="acc-price-label">A partir de</span>
+                            <span class="acc-price-val">R$ 850,00</span>
+                        </div>
+                        <a href="{{ url_for('contato') }}" class="acc-cta outline-btn">
+                            SOLICITAR <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-index="2">
+                <div class="acc-bg" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="acc-overlay"></div>
+                <i class="fas fa-palette acc-icon-collapsed"></i>
+                <span class="acc-number">Artes</span>
+                <div class="acc-content">
+                    <span class="acc-tag"><i class="fas fa-palette"></i> Social Media</span>
+                    <h3 class="acc-title">ARTES GRÁFICAS</h3>
+                    <p class="acc-desc">Peças gráficas e social media com estética técnica e profissional para campanhas digitais de alto impacto e clique.</p>
+                    <div class="acc-price-row">
+                        <div class="acc-price-info">
+                            <span class="acc-price-label">Unidade</span>
+                            <span class="acc-price-val">R$ 70,00</span>
+                        </div>
+                        <a href="{{ url_for('contato') }}" class="acc-cta outline-btn">
+                            SOLICITAR <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-index="3">
+                <div class="acc-bg" style="background-image: url('https://images.unsplash.com/photo-1633412802994-5c058f151b66?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="acc-overlay"></div>
+                <i class="fas fa-cube acc-icon-collapsed"></i>
+                <span class="acc-number">3D</span>
+                <div class="acc-content">
+                    <span class="acc-tag"><i class="fas fa-cube"></i> Modelagem</span>
+                    <h3 class="acc-title">MODELAGEM 3D</h3>
+                    <p class="acc-desc">Desenvolvimento de assets, props e cenários digitais complexos (Blender/WebGL) otimizados para web e visualização de produto.</p>
+                    <div class="acc-price-row">
+                        <div class="acc-price-info">
+                            <span class="acc-price-label">A partir de</span>
+                            <span class="acc-price-val">R$ 600,00</span>
+                        </div>
+                        <a href="{{ url_for('contato') }}" class="acc-cta outline-btn">
+                            SOLICITAR <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-index="4">
+                <div class="acc-bg" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="acc-overlay"></div>
+                <i class="fas fa-wand-magic-sparkles acc-icon-collapsed"></i>
+                <span class="acc-number">Motion</span>
+                <div class="acc-content">
+                    <span class="acc-tag"><i class="fas fa-wand-magic-sparkles"></i> Animação</span>
+                    <h3 class="acc-title">MOTION & VFX</h3>
+                    <p class="acc-desc">Animações fluidas, partículas e efeitos visuais de alto impacto que dão vida a narrativas digitais e projetos interativos.</p>
+                    <div class="acc-price-row">
+                        <div class="acc-price-info">
+                            <span class="acc-price-label">A partir de</span>
+                            <span class="acc-price-val">R$ 750,00</span>
+                        </div>
+                        <a href="{{ url_for('contato') }}" class="acc-cta outline-btn">
+                            SOLICITAR <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-index="5">
+                <div class="acc-bg" style="background-image: url('https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="acc-overlay"></div>
+                <i class="fas fa-clapperboard acc-icon-collapsed"></i>
+                <span class="acc-number">CGI</span>
+                <div class="acc-content">
+                    <span class="acc-tag"><i class="fas fa-clapperboard"></i> Comercial</span>
+                    <h3 class="acc-title">CGI COMERCIAL</h3>
+                    <p class="acc-desc">Vídeos fotorrealistas nível cinema para destacar produtos e marcas com a mais alta qualidade de imagem computadorizada.</p>
+                    <div class="acc-price-row">
+                        <div class="acc-price-info">
+                            <span class="acc-price-label">Projeto</span>
+                            <span class="acc-price-val">ORÇAMENTO</span>
+                        </div>
+                        <a href="{{ url_for('contato') }}" class="acc-cta outline-btn">
+                            CONSULTAR <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div></div></section>
+
+
+<section class="service-details-section">
+    <div class="container relative-z">
+
+        <div class="text-center d6-reveal" style="margin-bottom: 60px;">
+            <span class="hero-tagline"><i class="fas fa-microchip"></i> EXECUÇÃO</span>
+            <h2 class="section-title" style="margin-bottom: 0;">Como é <span>Feito</span></h2>
+        </div>
+
+        <div class="details-layout d6-reveal">
+
+            <div>
+                <div class="sidebar-glass">
+                    <div class="cyber-lines"></div>
+                    <div class="active-pill-bg" id="activePill"></div>
+                    <ul class="vertical-nav" id="verticalNav">
+                        <li class="active" data-target="detail-web">
+                            <i class="fas fa-globe"></i>
+                            <span class="nav-text">Sites</span>
+                        </li>
+                        <li data-target="detail-brand">
+                            <i class="fas fa-lightbulb"></i>
+                            <span class="nav-text">Identidade Visual</span>
+                        </li>
+                        <li data-target="detail-art">
+                            <i class="fas fa-palette"></i>
+                            <span class="nav-text">Artes Gráficas</span>
+                        </li>
+                        <li data-target="detail-3d">
+                            <i class="fas fa-cube"></i>
+                            <span class="nav-text">Modelagem 3D</span>
+                        </li>
+                        <li data-target="detail-vfx">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                            <span class="nav-text">Animações & VFX</span>
+                        </li>
+                        <li data-target="detail-cgi">
+                            <i class="fas fa-clapperboard"></i>
+                            <span class="nav-text">CGI Publicitário</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-area">
+
+                <div class="detail-pane active" id="detail-web">
+                    <div class="pane-glass">
+                        <h2>Arquitetura de <span class="highlight-text">Interfaces Web</span></h2>
+                        <div class="pane-body">
+                            <p>Não criamos apenas sites; construímos ambientes virtuais interativos de alta conversão. Nosso ecossistema de desenvolvimento une Python (Flask) no backend com interfaces imersivas.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> <strong>Wireframing UX/UI:</strong> Mapeamento da jornada do utilizador com foco em retenção.</li>
+                                <li><i class="fas fa-check"></i> <strong>Desenvolvimento Front-end:</strong> Tecnologias modernas usando aceleração de GPU.</li>
+                                <li><i class="fas fa-check"></i> <strong>Integração Backend:</strong> Estruturas robustas em Python prontas para escalar.</li>
+                            </ul>
+                            <a href="{{ url_for('contato') }}" class="d6-magnetic-btn outline-btn mt-20">
+                                <span class="btn-text">SOLICITAR PROJETO WEB <i class="fas fa-arrow-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-pane" id="detail-brand">
+                    <div class="pane-glass">
+                        <h2>Forjando seu <span class="highlight-text">Branding</span></h2>
+                        <div class="pane-body">
+                            <p>Uma marca forte domina a mente do consumidor. Nossa metodologia de criação de Identidade Visual aplica engenharia reversa no design psicológico:</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> <strong>Estudo de Arquétipos:</strong> Definimos a personalidade e o tom de voz da sua empresa.</li>
+                                <li><i class="fas fa-check"></i> <strong>Design de Logotipo:</strong> Construção baseada em grid matemático e proporção áurea.</li>
+                                <li><i class="fas fa-check"></i> <strong>Brandbook:</strong> Manual completo de como aplicar sua marca em todos os pontos de contato.</li>
+                            </ul>
+                            <a href="{{ url_for('contato') }}" class="d6-magnetic-btn outline-btn mt-20">
+                                <span class="btn-text">INICIAR IDENTIDADE <i class="fas fa-arrow-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-pane" id="detail-art">
+                    <div class="pane-glass">
+                        <h2>Design de <span class="highlight-text">Artes Gráficas</span></h2>
+                        <div class="pane-body">
+                            <p>Peças visuais focadas em prender a atenção do utilizador nos primeiros milissegundos.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> <strong>Social Media Premium:</strong> Posts estáticos ou carrosséis com estética alinhada ao seu Branding.</li>
+                                <li><i class="fas fa-check"></i> <strong>Banners Publicitários:</strong> Otimizados para Google Ads e Meta Ads visando o maior CTR.</li>
+                                <li><i class="fas fa-check"></i> <strong>Manipulação de Imagem:</strong> Fusão de elementos complexos para peças únicas e surreais.</li>
+                            </ul>
+                            <a href="{{ url_for('contato') }}" class="d6-magnetic-btn outline-btn mt-20">
+                                <span class="btn-text">ORÇAR PACOTE DE ARTES <i class="fas fa-arrow-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-pane" id="detail-3d">
+                    <div class="pane-glass">
+                        <h2>Criação de <span class="highlight-text">Assets 3D</span></h2>
+                        <div class="pane-body">
+                            <p>Utilizando o poder do Blender, transformamos ideias planas em volumes matematicamente perfeitos.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> <strong>Modelagem Hard Surface:</strong> Desde maquinários industriais complexos até objetos estilizados.</li>
+                                <li><i class="fas fa-check"></i> <strong>Texturização PBR:</strong> Materiais fisicamente corretos (metais, vidros, ranhuras).</li>
+                                <li><i class="fas fa-check"></i> <strong>Otimização WebGL:</strong> Modelos leves prontos para rodar em jogos ou direto no navegador.</li>
+                            </ul>
+                            <a href="{{ url_for('contato') }}" class="d6-magnetic-btn outline-btn mt-20">
+                                <span class="btn-text">ORÇAR MODELO 3D <i class="fas fa-arrow-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-pane" id="detail-vfx">
+                    <div class="pane-glass">
+                        <h2>Magia em <span class="highlight-text">Animações & VFX</span></h2>
+                        <div class="pane-body">
+                            <p>Damos movimento e vida aos projetos através de simulações físicas e efeitos computacionais avançados.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> <strong>Motion Graphics:</strong> Animações tipográficas e vetoriais extremamente fluidas.</li>
+                                <li><i class="fas fa-check"></i> <strong>Simulações Físicas:</strong> Dinâmica de fluidos, fumaça, colisões e emissão de partículas.</li>
+                                <li><i class="fas fa-check"></i> <strong>Composição Visual:</strong> Integração invisível de elementos virtuais em filmagens reais.</li>
+                            </ul>
+                            <a href="{{ url_for('contato') }}" class="d6-magnetic-btn outline-btn mt-20">
+                                <span class="btn-text">DISCUTIR ANIMAÇÃO <i class="fas fa-arrow-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-pane" id="detail-cgi">
+                    <div class="pane-glass">
+                        <h2>Produção de <span class="highlight-text">CGI Comercial</span></h2>
+                        <div class="pane-body">
+                            <p>O mais alto nível de impacto visual para vender produtos físicos com fotorrealismo inquestionável.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> <strong>Direção de Arte:</strong> Planejamento storyboard frame a frame do seu comercial.</li>
+                                <li><i class="fas fa-check"></i> <strong>Iluminação Cinematográfica:</strong> Luzes de estúdio reais replicadas perfeitamente no ambiente 3D.</li>
+                                <li><i class="fas fa-check"></i> <strong>Renderização Fotorrealista:</strong> Uso de Raytracing para calcular sombras e reflexos físicos exatos.</li>
+                            </ul>
+                            <a href="{{ url_for('contato') }}" class="d6-magnetic-btn outline-btn mt-20">
+                                <span class="btn-text">CONSULTORIA EM CGI <i class="fas fa-arrow-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div></div></div></section>
+
+{% endblock %}

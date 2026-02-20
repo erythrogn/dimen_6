@@ -1,0 +1,141 @@
+/* =========================
+   header.css
+   ========================= */
+header {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 20px 0;
+}
+
+.logo-svg {
+    height: 50px;
+    width: auto;
+    filter: drop-shadow(0 0 10px var(--primary));
+}
+
+/* =========================
+   MAGIC NAVIGATION BAR
+   ========================= */
+.magic-nav {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px; /* 4 itens de 70px + bordas */
+    height: 70px;
+    background: rgba(10, 21, 37, 0.95);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 0 1px rgba(0, 243, 255, 0.1);
+}
+
+.magic-nav ul {
+    display: flex;
+    width: 280px; /* 4 itens x 70px */
+    position: relative;
+    list-style: none;
+}
+
+.magic-nav ul li {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.magic-nav ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.magic-nav ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: 0.5s;
+    color: var(--text-gray);
+    z-index: 2;
+}
+
+/* Ícone sobe quando está ativo */
+.magic-nav ul li.active a .icon {
+    transform: translateY(-35px);
+    color: var(--bg-dark);
+}
+
+.magic-nav ul li a .text {
+    position: absolute;
+    color: var(--primary);
+    font-size: 0.65rem;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Texto aparece quando está ativo */
+.magic-nav ul li.active a .text {
+    opacity: 1;
+    transform: translateY(12px);
+    text-shadow: 0 0 5px rgba(0, 243, 255, 0.5);
+}
+
+/* =========================
+   O INDICADOR QUE AFUNDA
+   ========================= */
+.indicator {
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 6px solid var(--bg-dark);
+    transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: inset 0 -3px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 243, 255, 0.6);
+}
+
+/* Curvas laterais do buraco */
+.indicator::before {
+    content: '';
+    position: absolute;
+    top: 48%; left: -22px;
+    width: 20px; height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 0px -10px 0 0 var(--bg-dark);
+}
+
+.indicator::after {
+    content: '';
+    position: absolute;
+    top: 48%; right: -22px;
+    width: 20px; height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: 0px -10px 0 0 var(--bg-dark);
+}
+
+/* Posicionamento do indicador conforme item ativo */
+.magic-nav ul li:nth-child(1).active ~ .indicator { transform: translateX(calc(70px * 0)); }
+.magic-nav ul li:nth-child(2).active ~ .indicator { transform: translateX(calc(70px * 1)); }
+.magic-nav ul li:nth-child(3).active ~ .indicator { transform: translateX(calc(70px * 2)); }
+.magic-nav ul li:nth-child(4).active ~ .indicator { transform: translateX(calc(70px * 3)); }
