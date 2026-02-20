@@ -60,61 +60,82 @@
         </ul>
     </nav>
 
-  <footer class="main-footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col branding">
-                <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="DIMEN6" class="footer-logo-svg" width="110">
-                <p class="footer-tagline">
-                    Transformando imaginação em realidade digital.<br>
-                    Sites, 3D e CGI que deixam marcas.
-                </p>
-                <div class="footer-status">
-                    <span class="status-dot"></span>
-                    Aceitando novos projetos
+    <footer class="main-footer">
+        <div class="footer-glow-right"></div>
+        <div class="container">
+
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="DIMEN6" class="footer-logo-svg" width="110">
+                    <p class="footer-tagline">
+                        Compilando experiências digitais que o mercado não consegue ignorar. Performance obsessiva, arte implacável.
+                    </p>
+                    <div class="footer-status">
+                        <span class="status-dot"></span>
+                        Aceitando novos projetos
+                    </div>
+                </div>
+                <div class="footer-top-right">
+                    <p>EST.</p>
+                    <div class="footer-top-counter">2026</div>
                 </div>
             </div>
 
-            <div class="footer-col contact-info">
-                <h3 class="footer-title">CONTATO</h3>
-                <ul>
-                    <li>
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:contato@dimen6.com">e-mail</a>
-                    </li>
-                    <li>
-                        <i class="fab fa-whatsapp"></i>
-                        <a href="https://wa.me/5594992691894" target="_blank" rel="noopener">WhatsApp Direct</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Brasil — Remoto</span>
-                    </li>
-                </ul>
+            <div class="footer-grid">
+
+                <div class="footer-col branding">
+                    <h3 class="footer-title">NAVEGAÇÃO</h3>
+                    <nav class="footer-nav">
+                        <a href="{{ url_for('index') }}">Home</a>
+                        <a href="{{ url_for('sobre') }}">Sobre o Estúdio</a>
+                        <a href="{{ url_for('servicos') }}">Serviços</a>
+                        <a href="{{ url_for('contato') }}">Iniciar Projeto</a>
+                    </nav>
+                </div>
+
+                <div class="footer-col contact-info">
+                    <h3 class="footer-title">CONTATO</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contato@dimen6.com">contato@dimen6.com</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/5594992691894" target="_blank" rel="noopener">WhatsApp Direct</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Brasil — Remoto</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col social-col">
+                    <h3 class="footer-title">REDES</h3>
+                    <div class="social-links-footer">
+                        <a href="https://instagram.com/dimen_6_" target="_blank" rel="noopener" class="instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" class="github" aria-label="GitHub">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="footer-col social-col">
-                <h3 class="footer-title">REDES</h3>
-                <div class="social-links-footer">
-                    <a href="https://instagram.com/dimen_6_" target="_blank" rel="noopener" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" target="_blank" rel="noopener" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 <span>DIMEN6</span> &mdash; Todos os direitos reservados</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacidade</a>
+                    <span class="footer-bottom-sep"></span>
+                    <a href="#">Termos</a>
                 </div>
             </div>
-        </div>
 
-        <div class="footer-bottom">
-            <p class="copyright">&copy; 2026 DIMEN6 &mdash; Todos os direitos reservados</p>
-            <div class="footer-bottom-links">
-                <a href="#">Privacidade</a>
-                <a href="#">Termos</a>
-            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <div id="dimensional-overlay" class="dimensional-overlay">
         <p class="loading-text">CARREGANDO DADOS...</p>
